@@ -164,18 +164,27 @@ a {
   display: flex;
   flex-wrap: wrap;
   height: 310px;
-  width: 410px;
+  width: 405px;
 }
 
 .memoryScore{
   margin-left: 3vw;
 }
 
+.memoryReset{
+  margin: 1em;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  padding: 1em;
+  border-radius: 3em;
+  transition: var(--transition-speed);
+}
 
-
-
-
-
+.memoryReset:hover{
+  background: var(--bg-secondary);
+  transform: scale(1.1);
+  transition: var(--transition-speed);
+}
 
 /* Small screens - moves navbar to bottom of page*/
 @media only screen and (max-width: 600px) {

@@ -59,7 +59,7 @@ class Memory extends Component {
             }
         ],
         cardsWon: [],
-        resultDisplay: document.querySelector('#memoryResults')
+        resultDisplay: 0,
     }
 
     componentDidMount=()=>{
@@ -67,41 +67,39 @@ class Memory extends Component {
         this.createBoard();
     }
 
-    //gameboard
-    createBoard=()=>{
-        this.setState({
-            cardArray: this.state.cardArray.sort(()=>0.5-Math.random())
-        })
-        for (let i=0; i<this.state.cardArray.length; i++){
-            let card = document.createElement('img');
-            card.setAttribute('src', '/images/memory/colors.jpg');
-            card.setAttribute('data-id', i);
-            card.addEventListener('click', ()=>this.flipCard('data-id'));
-            document.querySelector('.memoryGrid').appendChild(card);
-        }
-    }
-
-    //flip card
-    flipCard=(cardId)=>{
-        // console.log('flippin card');
-        // let cardId = card.getAttribute('data-id');
-        this.setState({
-            cardsChosen: [...this.state.cardsChosen, this.state.cardArray[cardId].name],
-            cardsChosenId: [...this.state.cardsChosenId, cardId]
-        });
-        this.setAttribute('src', this.state.cardArray[cardId].img);
+    componentDidUpdate=()=>{
         if (this.state.cardsChosen.length === 2){
             setTimeout(this.checkForMatch(), 600)
         }
     }
 
+    //gameboard
+    createBoard=()=>{
+        this.setState({
+            cardArray: this.state.cardArray.sort(()=>0.5-Math.random())
+        })
+    }
+
+    //flip card
+    flipCard=(event, name)=>{
+        const display = event.target;
+        const card = event.target.dataset.id;
+        display.src=`/images/memory/${name}.jpg`
+        this.setState({
+            cardsChosen: [...this.state.cardsChosen, this.state.cardArray[card].name],
+            cardsChosenId: [...this.state.cardsChosenId, card]
+        });
+    }
+
     //check for match
     checkForMatch=()=>{
-        let cards = document.querySelectorAll('img');
+        let cards = document.querySelectorAll('img.memoryCard');
         const firstOption = this.state.cardsChosenId[0];
         const secondOption = this.state.cardsChosenId[1];
         if (this.state.cardsChosen[0] === this.state.cardsChosen[1]){
             alert('Great Job!! You found a match!!');
+            cards[firstOption].removeAttribute('src');
+            cards[secondOption].removeAttribute('src');
             cards[firstOption].setAttribute('src', '/images/memory/blank.jpg');
             cards[secondOption].setAttribute('src', '/images/memory/blank.jpg');
             this.setState({
@@ -116,10 +114,27 @@ class Memory extends Component {
             cardsChosen: [],
             cardsChosenId: []
         });
-        // console.log('hi', cardsWon);
-        this.state.resultDisplay.textContent = this.state.cardsWon.length;
+        this.updateScore();
+    }
+
+    reset=()=>{
+        let cards = document.querySelectorAll('img.memoryCard');
+        for(let i=0; i<cards.length; i++){
+            cards[i].setAttribute('src', '/images/memory/colors.jpg');
+        }
+        this.setState({
+            cardsChosen: [],
+            cardsChosenId: [],
+            cardsWon: [],
+            resultDisplay: 0
+        });
+        this.createBoard();
+    }
+
+    updateScore=()=>{
+        this.setState({resultDisplay: this.state.cardsWon.length});
         if (this.state.cardsWon.length === (this.state.cardArray.length/2)){
-            this.state.resultDisplay.textContent = 'Congratulations!! You found them all!!'
+            this.setState({resultDisplay: 'Congratulations!! You found them all!!'});
         }
     }
 
@@ -130,8 +145,15 @@ class Memory extends Component {
       <div className="memoryWrapper">
           <div className="memoryContainer">
             <h1>Memory Game</h1>
-                <h2 className="memoryScore">Score: <span id="memoryResults"> </span></h2>
-                <div className="memoryGrid" onClick={()=>this.flipCard("data-id")}></div>
+                <h2 className="memoryScore">Score: <span id="memoryResults">{this.state.resultDisplay}</span></h2>
+                <button className="memoryReset" onClick={this.reset}>Reset</button>
+                <div className="memoryGrid">
+                    {this.state.cardArray.map((card, i)=>(
+                        <div key={i}>
+                            <img className="memoryCard" src={'/images/memory/colors.jpg'} alt={card.name} data-id={i} onClick={(event)=>this.flipCard(event, card.name)}/> 
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
       </>
