@@ -186,6 +186,44 @@ a {
   transition: var(--transition-speed);
 }
 
+.wackWrapper{
+  margin-left: 15vw;
+  background-image: url("/images/wack/whack.jpg");
+  background-size: cover;
+}
+
+.wackGrid{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 80vmin;
+  height: 60vmin;
+  max-width: 600px;
+  max-height: 600px;
+}
+
+.wackSquare{
+  width: 25vmin;
+  height: 25vmin;
+  max-width: 150px;
+  max-height: 150px;
+  border-style: groove;
+  border-color: cyan;
+  border-radius: 1em;
+  cursor: crosshair;
+}
+
+.wackMole{
+  background-image: url("/images/wack/mouse.jpg");
+  background-size: cover;
+}
+
+
+
+
+
+
 /* Small screens - moves navbar to bottom of page*/
 @media only screen and (max-width: 600px) {
   .navbar {
@@ -204,6 +242,10 @@ a {
 
   .nav-link {
     justify-content: center;
+  }
+
+  .memoryContainer{
+    margin-left: 1vw;
   }
 
 }

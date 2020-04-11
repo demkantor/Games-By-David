@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+
+
 
 class Nav extends Component {
 
@@ -37,7 +38,7 @@ class Nav extends Component {
         </a>
       </li>
 
-      <Link to="/memory" className="nav-item">
+      <li className="nav-item">
         <a href="#memory" className="nav-link">
           <svg aria-hidden="true" 
           focusable="false" 
@@ -53,42 +54,45 @@ class Nav extends Component {
               ></path></svg>
           <span className="link-text">Memory</span>
         </a>
-      </Link>
+      </li>
 
-      <Link to="/" className="nav-item">
-        <a href="#nav" className="nav-link">
+      <li className="nav-item">
+        <a href="#wack" className="nav-link">
         <svg aria-hidden="true" 
         focusable="false" 
         data-prefix="fas" 
-        data-icon="network-wired" 
-        className="svg-inline--fa fa-network-wired fa-w-20" 
-        role="img" xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 640 512">
-            <path fill="currentColor" 
-            d="M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z"
-            className="fa-secondary"
-            ></path></svg>
-          <span className="link-text">Networks</span>
-        </a>
-      </Link>
-
-      <Link to="project" className="nav-item">
-        <a href="#nav" className="nav-link">
-        <svg aria-hidden="true" 
-        focusable="false" 
-        data-prefix="fas" 
-        data-icon="map-marked-alt" 
-        className="svg-inline--fa fa-map-marked-alt fa-w-18" 
+        data-icon="mouse" 
+        className="svg-inline--fa fa-mouse fa-w-12" 
         role="img" 
         xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 576 512">
-            <path fill="currentColor" 
-            d="M288 0c-69.59 0-126 56.41-126 126 0 56.26 82.35 158.8 113.9 196.02 6.39 7.54 17.82 7.54 24.2 0C331.65 284.8 414 182.26 414 126 414 56.41 357.59 0 288 0zm0 168c-23.2 0-42-18.8-42-42s18.8-42 42-42 42 18.8 42 42-18.8 42-42 42zM20.12 215.95A32.006 32.006 0 0 0 0 245.66v250.32c0 11.32 11.43 19.06 21.94 14.86L160 448V214.92c-8.84-15.98-16.07-31.54-21.25-46.42L20.12 215.95zM288 359.67c-14.07 0-27.38-6.18-36.51-16.96-19.66-23.2-40.57-49.62-59.49-76.72v182l192 64V266c-18.92 27.09-39.82 53.52-59.49 76.72-9.13 10.77-22.44 16.95-36.51 16.95zm266.06-198.51L416 224v288l139.88-55.95A31.996 31.996 0 0 0 576 426.34V176.02c0-11.32-11.43-19.06-21.94-14.86z"
-            className="fa-secondary"
-       ></path></svg>
-          <span className="link-text">Mapping</span>
+        viewBox="0 0 384 512">
+          <path fill="currentColor" 
+          d="M0 352a160 160 0 0 0 160 160h64a160 160 0 0 0 160-160V224H0zM176 0h-16A160 160 0 0 0 0 160v32h176zm48 0h-16v192h176v-32A160 160 0 0 0 224 0z"
+          className="fa-secondary"
+        ></path></svg>
+          <span className="link-text">Wack-a-Mouse</span>
         </a>
-      </Link>
+      </li>
+
+      <li className="nav-item">
+        <a href="#nav" className="nav-link">
+        <svg aria-hidden="true" 
+        focusable="false" 
+        data-prefix="fas"
+        data-icon="snake" 
+        role="img"
+        viewBox="0 0 24 24" 
+        width="24px"  
+        xmlns="http://www.w3.org/2000/svg" 
+        className="fa-primary"
+          >
+          <path fill="currentColor"
+          d="M21.8,18.1c0.1-0.3,0.2-0.7,0.2-1.1c0-1.7-1.3-3-3-3h-4V8h7V7h-3V4c0-2.2-1.8-4-4-4h-2c-2.2,0-4,1.8-4,4v10H5   c-1.7,0-3,1.3-3,3c0,0.4,0.1,0.8,0.2,1.1C0.9,18.5,0,19.6,0,21c0,1.7,1.3,3,3,3h18c1.7,0,3-1.3,3-3C24,19.6,23.1,18.5,21.8,18.1z    M11,4c0-1.1,0.9-2,2-2h2c1.1,0,2,0.9,2,2v2h-4v8h-2V4z M5,16h14c0.6,0,1,0.4,1,1s-0.4,1-1,1H5c-0.6,0-1-0.4-1-1S4.4,16,5,16z    M21,22H3c-0.6,0-1-0.4-1-1s0.4-1,1-1h18c0.6,0,1,0.4,1,1S21.6,22,21,22z"/
+          >
+        </svg>
+          <span className="link-text">Snake</span>
+        </a>
+      </li>
 
       <li className="nav-item">
         <a href="#other" className="nav-link">
@@ -97,7 +101,8 @@ class Nav extends Component {
         data-prefix="fas" 
         data-icon="city" 
         className="svg-inline--fa fa-city fa-w-20" 
-        role="img" xmlns="http://www.w3.org/2000/svg" 
+        role="img" 
+        xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 640 512">
             <path fill="currentColor" 
             d="M616 192H480V24c0-13.26-10.74-24-24-24H312c-13.26 0-24 10.74-24 24v72h-64V16c0-8.84-7.16-16-16-16h-16c-8.84 0-16 7.16-16 16v80h-64V16c0-8.84-7.16-16-16-16H80c-8.84 0-16 7.16-16 16v80H24c-13.26 0-24 10.74-24 24v360c0 17.67 14.33 32 32 32h576c17.67 0 32-14.33 32-32V216c0-13.26-10.75-24-24-24zM128 404c0 6.63-5.37 12-12 12H76c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm0-96c0 6.63-5.37 12-12 12H76c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm0-96c0 6.63-5.37 12-12 12H76c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm128 192c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm0-96c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm0-96c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm160 96c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm0-96c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm0-96c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12V76c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm160 288c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40zm0-96c0 6.63-5.37 12-12 12h-40c-6.63 0-12-5.37-12-12v-40c0-6.63 5.37-12 12-12h40c6.63 0 12 5.37 12 12v40z"

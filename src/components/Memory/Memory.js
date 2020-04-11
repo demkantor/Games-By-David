@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../App/App.css';
+import Swal from 'sweetalert2'
 
 
 
@@ -97,7 +98,7 @@ class Memory extends Component {
         const firstOption = this.state.cardsChosenId[0];
         const secondOption = this.state.cardsChosenId[1];
         if (this.state.cardsChosen[0] === this.state.cardsChosen[1]){
-            alert('Great Job!! You found a match!!');
+            Swal.fire('Great Job!! You found a match!!');
             cards[firstOption].removeAttribute('src');
             cards[secondOption].removeAttribute('src');
             cards[firstOption].setAttribute('src', '/images/memory/blank.jpg');
@@ -106,7 +107,7 @@ class Memory extends Component {
                 cardsWon: [...this.state.cardsWon, this.state.cardsChosen]
             });
         }else {
-            alert('Sorry.... try again!');
+            Swal.fire('Sorry.... try again!');
             cards[firstOption].setAttribute('src', '/images/memory/colors.jpg');
             cards[secondOption].setAttribute('src', '/images/memory/colors.jpg');
         }
