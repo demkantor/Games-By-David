@@ -12,10 +12,9 @@
 body {
   height: 100vh;
   width: 100vw;
-  /* color: black;
-  background-color: white; */
   margin: 0;
   padding: 0;
+  font-family: 'Raleway';
 }
 
 /* changes the look of scrollbar, but currently removed it */
@@ -219,7 +218,32 @@ a {
   background-size: cover;
 }
 
+.connectWrapper{
+  margin-left: 15vw;
+}
 
+.connectGrid{
+  border: 1em ridge;
+  display: flex;
+  flex-wrap: wrap;
+  height: 240px;
+  width: 280px;
+}
+
+.connectGrid div{
+  height: 40px;
+  width: 40px;
+}
+
+.connectPlayer-one{
+  background:linear-gradient(red, darkred);
+  border-radius: 50%;
+}
+
+.connectPlayer-two{
+  background:linear-gradient(blue, darkblue);
+  border-radius: 50%;
+}
 
 
 

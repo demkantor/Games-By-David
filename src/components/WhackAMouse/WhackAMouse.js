@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 
 
 
-class WackAMouse extends Component {
+class WhackAMouse extends Component {
 
     state={
         timerId: null,
@@ -84,7 +84,7 @@ class WackAMouse extends Component {
         return (
         <>
         <div className="wackWrapper">
-            <h1>Wack-A-Mouse!</h1>
+            <h1>Whack-A-Mouse!</h1>
                 <h2>Score: <span id="wackScore">0</span></h2>
 
                 <h2>Time Left: <span id="wackTime">60</span></h2>
@@ -108,4 +108,4 @@ class WackAMouse extends Component {
     }
 }
   
-export default WackAMouse;
+export default WhackAMouse;
