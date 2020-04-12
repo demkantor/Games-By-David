@@ -98,18 +98,38 @@ class Memory extends Component {
         const firstOption = this.state.cardsChosenId[0];
         const secondOption = this.state.cardsChosenId[1];
         if (this.state.cardsChosen[0] === this.state.cardsChosen[1]){
-            Swal.fire('Great Job!! You found a match!!');
-            cards[firstOption].removeAttribute('src');
-            cards[secondOption].removeAttribute('src');
-            cards[firstOption].setAttribute('src', '/images/memory/blank.jpg');
-            cards[secondOption].setAttribute('src', '/images/memory/blank.jpg');
+            Swal.fire({
+                toast: true,
+                title: 'Great Job!! You found a match!!',
+                showClass: {
+                  popup: 'animated fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animated fadeOutUp'
+                }
+              }).then(()=>{
+                cards[firstOption].removeAttribute('src');
+                cards[secondOption].removeAttribute('src');
+                cards[firstOption].setAttribute('src', '/images/memory/blank.jpg');
+                cards[secondOption].setAttribute('src', '/images/memory/blank.jpg');
+              })
             this.setState({
                 cardsWon: [...this.state.cardsWon, this.state.cardsChosen]
             });
         }else {
-            Swal.fire('Sorry.... try again!');
+            Swal.fire({
+                toast: true,
+                title: 'Sorry... Try again!',
+                showClass: {
+                  popup: 'animated fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animated fadeOutUp'
+                }
+              }).then(()=>{
             cards[firstOption].setAttribute('src', '/images/memory/colors.jpg');
             cards[secondOption].setAttribute('src', '/images/memory/colors.jpg');
+              });
         }
         this.setState({
             cardsChosen: [],
@@ -146,7 +166,7 @@ class Memory extends Component {
       <div className="memoryWrapper">
           <div className="memoryContainer">
             <h1>Memory Game</h1>
-                <h2 className="memoryScore">Score: <span id="memoryResults">{this.state.resultDisplay}</span></h2>
+                <h2 className="memoryScore">Score: {this.state.resultDisplay}</h2>
                 <button className="memoryReset" onClick={this.reset}>Reset</button>
                 <div className="memoryGrid">
                     {this.state.cardArray.map((card, i)=>(

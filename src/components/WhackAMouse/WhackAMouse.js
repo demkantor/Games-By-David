@@ -6,14 +6,21 @@ import Swal from 'sweetalert2'
 
 class WhackAMouse extends Component {
 
+    timerId = null;
+    moveMole = null;
+
     state={
-        timerId: null,
         hitPosition: null,
         result: 0
     }
 
     componentDidMount=()=>{
         console.log("let's start wackin!")
+    }
+
+    componentWillUnmount=()=>{
+        clearInterval(this.timerId);
+        clearInterval(this.moveMole);
     }
 
     countDown=()=>{
@@ -45,10 +52,6 @@ class WhackAMouse extends Component {
         }
     }
 
-    moveMole=()=>{
-        this.setState({timerId: setInterval(this.randomSquare, 1000)});
-    }
-
     randomSquare=()=>{
         const square = document.querySelectorAll(".wackSquare");
         square.forEach(className =>{
@@ -64,10 +67,9 @@ class WhackAMouse extends Component {
     reset=()=>{
         let score = document.querySelector('#wackScore');
         const timeLeft = document.querySelector('#wackTime');
-        clearInterval(this.randomSquare);
-            clearInterval(this.countDown);
+        clearInterval(this.moveMole);
+        clearInterval(this.timerId);
             this.setState({
-                timerId: null,
                 hitPosition: null,
                 result: 0
             });
@@ -76,8 +78,8 @@ class WhackAMouse extends Component {
     }
 
     startGame=()=>{
-        this.moveMole();
-        this.setState({timerId: setInterval(this.countDown, 1000)});
+        this.moveMole = setInterval(this.randomSquare, 1000);
+        this.timerId = setInterval(this.countDown, 1000);
     }
 
     render() {

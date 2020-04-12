@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav';
 import Memory from '../Memory/Memory';
 import WhackaAMouse from '../WhackAMouse/WhackAMouse';
 import ConnectFour from '../ConnectFour/ConnectFour';
+import Snake from '../Snake/Snake';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
         <Nav />
         <Route exact path="/memory" component={Memory}/>
         <Route exact path="/whack" component={WhackaAMouse}/>
-
+        <Route exact path="/snake" component={Snake}/>
         <Route exact path="/connect" component={ConnectFour}/>
      </Router>
     </>

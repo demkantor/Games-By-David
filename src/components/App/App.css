@@ -240,7 +240,6 @@ a {
 
 .connectWrapper{
   margin-left: 15vw;
-
 }
 
 .connectGrid{
@@ -266,7 +265,63 @@ a {
   border-radius: 50%;
 }
 
+.snakeWrapper{
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
 
+.snakeWrapper::after {
+  content: "";
+  background: url("/images/snake/nokia.png");
+  background-size: cover;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.snakeContainer{
+  margin-left: 15vw;
+}
+
+.snakeGrid {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 20px solid;
+  border-image: url('/images/snake/wall.png') 25% repeat;
+}
+
+.snakeGrid div {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  box-sizing: border-box;
+}
+
+.snake{
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(0deg, rgba(138,237,158,0.9) 0%, rgba(3,111,29,1) 100%);
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.snake head{
+  background-color: red;
+  z-index: 10;
+}
+
+.apple{
+  background-image: url('/images/snake/apple.png');
+  background-size: cover;
+}
 
 
 /* Small screens - moves navbar to bottom of page*/
