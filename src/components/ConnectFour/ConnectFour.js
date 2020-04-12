@@ -48,7 +48,6 @@ class ConnectFour extends Component {
             const square2 = squares[winningArrays[i][1]];
             const square3 = squares[winningArrays[i][2]];
             const square4 = squares[winningArrays[i][3]];
-        console.log('checking....', squares[i])
             if(square1.classList.contains('connectPlayer-one') &&
                 square2.classList.contains('connectPlayer-one') &&
                 square3.classList.contains('connectPlayer-one') &&
@@ -80,7 +79,7 @@ class ConnectFour extends Component {
 
   render() {
     return (
-      <>
+      <div className="connectContainer">
         <div className="connectWrapper">
          <h2>Player: {this.state.currentPlayer}</h2>
             <button className="memoryReset" onClick={this.reset}>Reset</button>
@@ -137,7 +136,7 @@ class ConnectFour extends Component {
             </div>
             <h1>{this.state.results}</h1>
         </div>
-      </>
+      </div>
     )
   }
 }

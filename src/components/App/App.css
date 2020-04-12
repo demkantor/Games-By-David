@@ -218,21 +218,42 @@ a {
   background-size: cover;
 }
 
+.connectContainer{
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.connectContainer::after {
+  content: "";
+  background: url("/images/connectFour/connect4.png");
+  background-size: cover;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 .connectWrapper{
   margin-left: 15vw;
+
 }
 
 .connectGrid{
   border: 1em ridge;
   display: flex;
   flex-wrap: wrap;
-  height: 240px;
-  width: 280px;
+  height: 360px;
+  width: 420px;
 }
 
 .connectGrid div{
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
 }
 
 .connectPlayer-one{
