@@ -10,7 +10,7 @@ class Nav extends Component {
   <nav className="navbar">
     <ul className="navbar-nav">
       <li className="logo">
-        <a href="https://github.com/demkantor/Games-By-David" target="__blank" className="nav-link">
+        <a href="https://demkantor.github.io/david-dot-com.io/" target="__blank" className="nav-link">
           <span className="link-text logo-text">Games By David</span>
           <svg
             aria-hidden="true"
