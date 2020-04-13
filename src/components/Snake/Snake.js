@@ -7,7 +7,8 @@ import Swal from 'sweetalert2'
 
 class Snake extends Component {
 
-    interval=0;
+    width = 20; // change this if board size changes
+    interval = 0;
     intervalTime = 0;
     
     state={
@@ -27,38 +28,35 @@ class Snake extends Component {
         clearInterval(this.interval);
     }
 
-    //assign keyboard arrow keys for control
+    // assign keyboard arrow keys for control
     control=(e)=>{
         const squares = document.querySelectorAll('.snakeGrid div');
         let currentIndex = this.state.currentIndex;
-        console.log(currentIndex)
-        const width = 20 // this is the number of squares our board is wide
-        squares[currentIndex].classList.remove('snake') // removes the class 'snake' from ALL the squares.
+        squares[currentIndex].classList.remove('snake')
         
         if(e.keyCode === 39) {
-            this.setState({direction: 1}); //press right arrow
+            this.setState({direction: 1}); // press right arrow
         } else if (e.keyCode === 38) {
-            this.setState({direction: -width}); //pree up arrow
+            this.setState({direction: -this.width}); //press up arrow
         } else if (e.keyCode === 37) {
-            this.setState({direction: -1}); //press left arrow
+            this.setState({direction: -1}); // press left arrow
         } else if (e.keyCode === 40) {
-            this.setState({direction: +width}); //press down arrow
+            this.setState({direction: +this.width}); // press down arrow
         }
     }
 
-    //function that deals with ALL the ove outcomes of the Snake
+    // all possible snake outcomes
     moveOutcomes=()=>{
         let currentSnake = this.state.currentSnake;
         const squares = document.querySelectorAll('.snakeGrid div');
-        const width = 20;
         let direction = this.state.direction;
         let speed = 0.9;
-        //deals with snake hitting border and snake hitting self
+        // if snake hits a wall or itself
         if (
-          (currentSnake[0] + width >= (width * width) && direction === width ) || // snake hits bottom wall
-          (currentSnake[0] % width === width -1 && direction === 1) || // snake hits right wall
-          (currentSnake[0] % width === 0 && direction === -1) || // snake hits left wall
-          (currentSnake[0] - width < 0 && direction === -width) ||  // snake hits top wall
+          (currentSnake[0] + this.width >= (this.width * this.width) && direction === this.width ) || // snake hits bottom wall
+          (currentSnake[0] % this.width === this.width -1 && direction === 1) || // snake hits right wall
+          (currentSnake[0] % this.width === 0 && direction === -1) || // snake hits left wall
+          (currentSnake[0] - this.width < 0 && direction === -this.width) ||  // snake hits top wall
           squares[currentSnake[0] + direction].classList.contains('snake') // snake hits itself
         ) {
           return( Swal.fire({
@@ -72,13 +70,12 @@ class Snake extends Component {
               popup: 'animated fadeOutUp'
             }
           }), clearInterval(this.interval)) // clear the interval if any of the above happen
-        
         }
         const tail = currentSnake.pop()  // removes end of snake array
         squares[tail].classList.remove('snake')  // removes class of snake from the tail end
         currentSnake.unshift(currentSnake[0] + direction) // gives direction to the head of the array
     
-        //deals with snake getting apple
+        // when the snake eats the apple
         if(squares[currentSnake[0]].classList.contains('apple')) {
           squares[currentSnake[0]].classList.remove('apple')
           squares[0].classList.add('snakeHead')
@@ -92,6 +89,23 @@ class Snake extends Component {
         }
         squares[currentSnake[0]].classList.add('snake')
       }
+
+    // control for dpad - only shows in smal screens
+    phoneControl=(dpad)=>{
+      const squares = document.querySelectorAll('.snakeGrid div');
+      let currentIndex = this.state.currentIndex;
+      squares[currentIndex].classList.remove('snake')
+      
+      if(dpad === 'right') {
+          this.setState({direction: 1}); // press right arrow
+      } else if (dpad === 'up') {
+          this.setState({direction: -this.width}); //press up arrow
+      } else if (dpad === 'left') {
+          this.setState({direction: -1}); // press left arrow
+      } else if (dpad === 'down') {
+          this.setState({direction: +this.width}); // press down arrow
+      }
+    }
 
     //generates new apple after eaten
     randomApple=()=>{
@@ -177,6 +191,16 @@ class Snake extends Component {
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
         </div>
+        <div className="dpad">
+          <i></i>
+          <i className="fas fa-arrow-alt-circle-up fa-4x" onClick={()=>this.phoneControl('up')}></i>
+          <i></i>
+          <i className="fas fa-arrow-alt-circle-left fa-4x" onClick={()=>this.phoneControl('left')}></i>
+          <i></i>
+          <i className="fas fa-arrow-alt-circle-right fa-4x" onClick={()=>this.phoneControl('right')}></i>
+          <i></i>
+          <i className="fas fa-arrow-alt-circle-down fa-4x" onClick={()=>this.phoneControl('down')}></i>
+          </div>
     </div>
     )
   }

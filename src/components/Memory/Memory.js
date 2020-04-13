@@ -170,7 +170,7 @@ class Memory extends Component {
                 <button className="memoryReset" onClick={this.reset}>Reset</button>
                 <div className="memoryGrid">
                     {this.state.cardArray.map((card, i)=>(
-                        <div key={i}>
+                        <div className="memoryDeck" key={i}>
                             <img className="memoryCard" src={'/images/memory/colors.jpg'} alt={card.name} data-id={i} onClick={(event)=>this.flipCard(event, card.name)}/> 
                         </div>
                     ))}
