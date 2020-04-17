@@ -334,6 +334,50 @@ a {
   display: none;
 }
 
+.spaceWrapper{
+  margin-left: 15vw;
+  overflow: hidden;
+}
+
+.spaceGrid{
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 1px;
+  width: 450px;
+  height: 450px;
+  background-color: pink;
+}
+
+.spaceGrid div {
+  width: 30px;
+  height: 30px;
+}
+
+.shooter {
+  background-image: url("/images/space/blaster.png");
+  background-size: contain;
+}
+
+.invader {
+  background-image: url("/images/space/invader.png");
+  background-size: contain;
+  border-radius: 5px;
+}
+
+.boom {
+  background-image: url("/images/space/boom.png");
+  background-size: contain;
+}
+
+.laser {
+  background-image: url("/images/space/fire.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+
+
 /* Small screens - moves navbar to bottom of page*/
 @media only screen and (max-width: 600px) {
   .navbar {

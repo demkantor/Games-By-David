@@ -6,6 +6,7 @@ import Memory from '../Memory/Memory';
 import WhackaAMouse from '../WhackAMouse/WhackAMouse';
 import ConnectFour from '../ConnectFour/ConnectFour';
 import Snake from '../Snake/Snake';
+import SpaceInvaders from '../SpaceInvaders/SpaceInvaders';
 
 function App() {
 
@@ -13,10 +14,11 @@ function App() {
     <>
      <Router>
         <Nav />
-        <Route exact path="/memory" component={Memory}/>
-        <Route exact path="/whack" component={WhackaAMouse}/>
-        <Route exact path="/snake" component={Snake}/>
-        <Route exact path="/connect" component={ConnectFour}/>
+          <Route exact path="/memory" component={Memory}/>
+          <Route exact path="/whack" component={WhackaAMouse}/>
+          <Route exact path="/snake" component={Snake}/>
+          <Route exact path="/connect" component={ConnectFour}/>
+          <Route exact path="/space" component={SpaceInvaders}/>
      </Router>
     </>
   );
