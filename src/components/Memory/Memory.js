@@ -112,6 +112,8 @@ class Memory extends Component {
                 cards[secondOption].removeAttribute('src');
                 cards[firstOption].setAttribute('src', '/images/memory/blank.jpg');
                 cards[secondOption].setAttribute('src', '/images/memory/blank.jpg');
+                cards[firstOption].classList.add('memoryBlank');
+                cards[secondOption].classList.add('memoryBlank');
               })
             this.setState({
                 cardsWon: [...this.state.cardsWon, this.state.cardsChosen]
@@ -142,6 +144,7 @@ class Memory extends Component {
         let cards = document.querySelectorAll('img.memoryCard');
         for(let i=0; i<cards.length; i++){
             cards[i].setAttribute('src', '/images/memory/colors.jpg');
+            cards[i].classList.remove('memoryBlank');
         }
         this.setState({
             cardsChosen: [],

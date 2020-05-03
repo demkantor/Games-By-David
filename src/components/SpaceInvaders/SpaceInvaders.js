@@ -130,6 +130,7 @@ const SpaceInvaders= () => {
   
     document.addEventListener('keyup', shoot)
   })
+  
     return (
       <>
         <div className="spaceWrapper">

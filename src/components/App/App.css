@@ -1,11 +1,17 @@
 /* sets variables to easily change in other components */
 :root {
   font-size: 16px;
-  font-family: 'Open Sans';
+  font-family: 'Raleway';
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
+  --text-tertiary: #f5f5f5;
   --bg-primary: #23232e;
   --bg-secondary: #141418;
+  --bg-tertiary: #0d0d13;
+  --grad-primary: radial-gradient(circle, #afc4ae 0%, #68ccbf 89% ,#5ebfb2 100%);
+  --grad-secondary: linear-gradient(0deg, #8aed9ee6 0%, #036f1d 100%);
+  --grad-tertiary: radial-gradient(circle, #aeb3c4 0%, #68a4cc 89% ,#5e88bf 100%);
+  --grad-quaternary: radial-gradient(circle, #c4b0ae 0%, #cc6f68 89% ,#bf6d5e 100%);
   --transition-speed: 600ms;
 }
 
@@ -14,7 +20,6 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  font-family: 'Raleway';
 }
 
 /* changes the look of scrollbar, but currently removed it */
@@ -149,7 +154,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url('/images/memory/savana.jpeg');
+  background: var(--grad-tertiary);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -160,17 +165,32 @@ a {
 }
 
 .memoryGrid{
-  /* border: var(--bg-primary) solid; */
+  background-image: url('/images/memory/savana.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  height: 310px;
-  width: 420px;
+  height: 300px;
+  width: 400px;
 }
 
 .memoryDeck{
   height: 100px;
   overflow: hidden;
+}
+
+.memoryCard{
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.memoryBlank{
+  opacity: 0.1;
+  width: 100px;
+  height: 100px;
 }
 
 .memoryScore{
@@ -193,9 +213,12 @@ a {
 }
 
 .wackWrapper{
-  margin-left: 15vw;
-  background-image: url("/images/wack/whack.jpg");
-  background-size: cover;
+  height: 100vh;
+  width: 85vw;
+  padding-left: 15vw;
+  background: var(--grad-quaternary);
+  background-size: contain;
+  overflow: hidden;
 }
 
 .wackGrid{
@@ -315,7 +338,7 @@ a {
 .snake{
   width: 18px;
   height: 18px;
-  background: linear-gradient(0deg, rgba(138,237,158,0.9) 0%, rgba(3,111,29,1) 100%);
+  background: var(--grad-secondary);
   border: 1px solid black;
   border-radius: 2px;
 }
@@ -384,9 +407,10 @@ a {
     bottom: 0;
     width: 100vw;
     height: 5rem;
+    overflow-x: scroll;
   }
 
-  .logo {
+  .nav-item:last-child, .logo {
     display: none;
   }
 
@@ -403,9 +427,8 @@ a {
   }
 
   .wackWrapper{
-    margin-left: 7vw;
-    overflow: hidden;
-    height: 80vh;
+    padding-left: 10vw;
+    width: 90vw;
   }
 
   .wackGrid{
@@ -427,12 +450,6 @@ a {
   .snakeGrid div {
     width: 15px;
     height: 15px;
-  }
-  
-  .snake{
-    background: linear-gradient(0deg, rgba(138,237,158,0.9) 0%, rgba(3,111,29,1) 100%);
-    border: 1px solid black;
-    border-radius: 2px;
   }
 
   .dpad{
