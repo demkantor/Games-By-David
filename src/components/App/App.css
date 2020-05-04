@@ -304,7 +304,7 @@ a {
 
 .snakeWrapper::after {
   content: "";
-  background: url("/images/snake/nokia.png");
+  background: var(--grad-tertiary);
   background-size: cover;
   opacity: 0.6;
   top: 0;
@@ -316,7 +316,7 @@ a {
 }
 
 .snakeContainer{
-  margin-left: 15vw;
+  margin-left: 25vw;
 }
 
 .snakeGrid {

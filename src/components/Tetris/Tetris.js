@@ -4,16 +4,17 @@ import '../App/App.css';
 
 class Tetris extends Component {
 
-        GRID_WIDTH = 10
-        GRID_HEIGHT = 20
-        GRID_SIZE = this.GRID_WIDTH * this.GRID_HEIGHT
-        scoreDisplay = document.querySelector('.score-display');
-        linesDisplay = document.querySelector('.lines-score');
+    state={
+        score: 0,
+        lines: 0,
+    }
+
+        GRID_WIDTH = 10;
+        GRID_HEIGHT = 20;
+        GRID_SIZE = this.GRID_WIDTH * this.GRID_HEIGHT;
         currentIndex = 0;
         currentRotation = 0;
         width = this.GRID_WIDTH;
-        score = 0;
-        lines = 0;
         timerId = null;
         nextRandom = 0;
         colors = [
@@ -31,49 +32,48 @@ class Tetris extends Component {
             [this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH + 2, this.GRID_WIDTH * 2 + 2],
             [1, this.GRID_WIDTH + 1, this.GRID_WIDTH * 2 + 1, this.GRID_WIDTH * 2],
             [this.GRID_WIDTH, this.GRID_WIDTH * 2, this.GRID_WIDTH * 2 + 1, this.GRID_WIDTH * 2 + 2]
-        ]
+        ];
       
         zTetromino = [
             [0, this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH * 2 + 1],
             [this.GRID_WIDTH + 1, this.GRID_WIDTH + 2, this.GRID_WIDTH * 2, this.GRID_WIDTH * 2 + 1],
             [0, this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH * 2 + 1],
             [this.GRID_WIDTH + 1, this.GRID_WIDTH + 2, this.GRID_WIDTH * 2, this.GRID_WIDTH * 2 + 1]
-        ]
+        ];
       
         tTetromino = [
             [1, this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH + 2],
             [1, this.GRID_WIDTH + 1, this.GRID_WIDTH + 2, this.GRID_WIDTH * 2 + 1],
             [this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH + 2, this.GRID_WIDTH * 2 + 1],
             [1, this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH * 2 + 1]
-        ]
+        ];
       
         oTetromino = [
             [0, 1, this.GRID_WIDTH, this.GRID_WIDTH + 1],
             [0, 1, this.GRID_WIDTH, this.GRID_WIDTH + 1],
             [0, 1, this.GRID_WIDTH, this.GRID_WIDTH + 1],
             [0, 1, this.GRID_WIDTH, this.GRID_WIDTH + 1]
-        ]
+        ];
       
         iTetromino = [
             [1, this.GRID_WIDTH + 1, this.GRID_WIDTH * 2 + 1, this.GRID_WIDTH * 3 + 1],
             [this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH + 2, this.GRID_WIDTH + 3],
             [1, this.RID_WIDTH + 1, this.GRID_WIDTH * 2 + 1, this.GRID_WIDTH * 3 + 1],
             [this.GRID_WIDTH, this.GRID_WIDTH + 1, this.GRID_WIDTH + 2, this.GRID_WIDTH + 3]
-        ]
+        ];
       
-        theTetrominoes = [this.lTetromino, this.zTetromino, this.tTetromino, this.oTetromino, this.iTetromino]
+        theTetrominoes = [this.lTetromino, this.zTetromino, this.tTetromino, this.oTetromino, this.iTetromino];
       
         //Randomly Select Tetromino
-        random = Math.floor(Math.random() * this.theTetrominoes.length)
-        current = this.theTetrominoes[this.random][this.currentRotation]
+        random = Math.floor(Math.random() * this.theTetrominoes.length);
+        current = this.theTetrominoes[this.random][this.currentRotation];
       
       
         //move the Tetromino moveDown
-        currentPosition = 4
+        currentPosition = 4;
       
-              
         //show previous tetromino in scoreDisplay
-        displayWidth = 4
+        displayWidth = 4;
       
         smallTetrominoes = [
             [1, this.displayWidth + 1, this.displayWidth * 2 + 1, 2], /* lTetromino */
@@ -81,7 +81,7 @@ class Tetris extends Component {
             [1, this.displayWidth, this.displayWidth + 1, this.displayWidth + 2], /* tTetromino */
             [0, 1, this.displayWidth, this.displayWidth + 1], /* oTetromino */
             [1, this.displayWidth + 1, this.displayWidth * 2 + 1, this.displayWidth * 3 + 1] /* iTetromino */
-        ]
+        ];
 
 
         componentDidMount =()=> {
@@ -101,22 +101,18 @@ class Tetris extends Component {
                 let gridElement = document.createElement("div")
                 grid.appendChild(gridElement)
             }
-        
             // set base of grid
             for (let i = 0; i < this.GRID_WIDTH; i++) {
                 let gridElement = document.createElement("div")
                 gridElement.setAttribute("class", "block3")
                 grid.appendChild(gridElement)
             }
-        
             let previousGrid = document.querySelector(".previous-grid")
-            // Since 16 is the max grid size in which all the Tetrominoes 
-            // can fit in we create one here
             for (let i = 0; i < 16; i++) {
                 let gridElement = document.createElement("div")
                 previousGrid.appendChild(gridElement);
             }
-            return grid;
+            this.setState({grid: grid});
         }
     
         //assign functions to keycodes
@@ -146,7 +142,7 @@ class Tetris extends Component {
       
         //draw the shape
         draw=()=>{
-            const grid = this.createGrid();
+            const grid = this.state.grid
             const squares = Array.from(grid.querySelectorAll('div'));
             this.current.forEach( index => {
             squares[this.currentPosition + index].classList.add('block');
@@ -156,7 +152,7 @@ class Tetris extends Component {
       
         //undraw the shape
         undraw=()=> {
-            const grid = this.createGrid();
+            const grid = this.state.grid
             const squares = Array.from(grid.querySelectorAll('div'));
             this.current.forEach( index => {
             squares[this.currentPosition + index].classList.remove('block');
@@ -172,10 +168,9 @@ class Tetris extends Component {
             this.freeze()
         }
       
-      
         //move left and prevent collisions with shapes moving left
         moveright=()=> {
-            const grid = this.createGrid();
+            const grid = this.state.grid;
             const squares = Array.from(grid.querySelectorAll('div'));
             this.undraw()
             const isAtRightEdge = this.current.some(index => (this.currentPosition + index) % this.width === this.width - 1)
@@ -188,7 +183,7 @@ class Tetris extends Component {
       
         //move right and prevent collisions with shapes moving right
         moveleft=()=> {
-            const grid = this.createGrid();
+            const grid = this.state.grid;
             const squares = Array.from(grid.querySelectorAll('div'));
             this.undraw()
             const isAtLeftEdge = this.current.some(index => (this.currentPosition + index) % this.width === 0)
@@ -202,7 +197,7 @@ class Tetris extends Component {
         //freeze the shape
         freeze=()=> {
             // if block has settled
-            const grid = this.createGrid();
+            const grid = this.state.grid;
             const squares = Array.from(grid.querySelectorAll('div'));
           if(this.current.some(index => squares[this.currentPosition + index + this.width].classList.contains('block3') 
           || squares[this.currentPosition + index + this.width].classList.contains('block2'))) {
@@ -219,7 +214,6 @@ class Tetris extends Component {
             this.gameOver()
           }
         }
-        // freeze()
       
         //Rotate the Tetromino
         rotate=()=> {
@@ -234,10 +228,10 @@ class Tetris extends Component {
       
         //Game Over
         gameOver=()=> {
-            const grid = this.createGrid();
+            const grid = this.state.grid;
             const squares = Array.from(grid.querySelectorAll('div'));
             if(this.current.some(index => squares[this.currentPosition + index].classList.contains('block2'))) {
-                this.scoreDisplay.innerHTML = 'end'
+                this.setState({lines: 'end'});
                 clearInterval(this.timerId);
             }
         }
@@ -257,25 +251,22 @@ class Tetris extends Component {
       
         //Add score
         addScore=()=> {
-            const grid = this.createGrid();
+            const grid = this.state.grid;
             let squares = Array.from(grid.querySelectorAll('div'));
             for (this.currentIndex = 0; this.currentIndex < this.GRID_SIZE; this.currentIndex += this.GRID_WIDTH) {
                 const row = [this.currentIndex, this.currentIndex + 1, this.currentIndex + 2, this.currentIndex + 3, 
                     this.currentIndex + 4, this.currentIndex + 5, this.currentIndex + 6, this.currentIndex + 7, this.currentIndex + 8, this.currentIndex + 9]
                 if (row.every(index => squares[index].classList.contains('block2'))) {
-                    this.score += 10
-                    this.lines +=1
-                    this.scoreDisplay.innerHTML = this.score
-                    this.linesDisplay.innerHTML = this.lines
-              row.forEach(index => {
-                squares[index].style.backgroundImage = 'none'
-                squares[index].classList.remove('block2') || squares[index].classList.remove('block')
-      
-              })
+                    this.setState({score: this.state.score + 10})
+                    this.setState({lines: this.state.lines + 1})
+                    row.forEach(index => {
+                        squares[index].style.backgroundImage = 'none'
+                        squares[index].classList.remove('block2') || squares[index].classList.remove('block')
+                    })
               //splice array
               const squaresRemoved = squares.splice(this.currentIndex,this.width)
               squares = squaresRemoved.concat(squares)
-              squares.forEach(cell => this.grid.appendChild(cell))
+              squares.forEach(cell => grid.appendChild(cell))
             }
           }
         }
@@ -300,13 +291,13 @@ class Tetris extends Component {
                             <div className="tetris-display">
                                 <h1 className="score fw-400 t-ucase">Your Score 
                                     <br/> 
-                                    <span className="score-display t-ucase fw-300">0</span>
+                                    <span className="score-display t-ucase fw-300">{this.state.score}</span>
                                 </h1>
                                 <div className="previous-shape">
                                     <div className="previous-grid"></div>
                                 </div>
                                 <h2 className="lines-display fw-400 t-ucase">Lines:
-                                    <span className="lines-score">0</span>
+                                    <span className="lines-score">{this.state.lines}</span>
                                 </h2>
                             </div>
                             <button className="memoryReset" onClick={this.startGame}>Start / Pause</button>
