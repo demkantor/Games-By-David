@@ -1,6 +1,6 @@
 /* sets variables to easily change in other components */
 :root {
-  font-size: 16px;
+  font-size: 0.625em;
   font-family: 'Raleway';
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
@@ -398,7 +398,134 @@ a {
   background-size: contain;
 }
 
+.tetris-wrapper {
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  color: #d8edea;
+  background: var(--grad-tertiary);
+}
 
+.tetris-container{
+  padding-left: 45vw;
+}
+
+.tetris-header {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+div {
+  height: 2rem;
+  width: 2rem;
+}
+
+.t-ucase {
+  text-transform: uppercase;
+}
+
+.t-big {
+  font-size: 1.5em;
+}
+
+.t-wide {
+  letter-spacing: 1.5rem;
+}
+
+.t-close {
+  letter-spacing: 1rem;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.score-display {
+  font-size: 5rem;
+  color: rgb(133, 121, 107, 0.5);
+}
+
+.tetris-game-area {
+  display: flex;
+  justify-content: center;
+}
+
+.tetris-game {
+  height: 0;
+  width: 300px;
+}
+
+.tetris-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 20rem;
+  height: 40rem;
+}
+
+.previous-shape {
+  width: 10rem;
+  padding-left: 2rem;
+  margin-top: -5rem;
+}
+
+.previous-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 8rem;
+  height: 8rem;
+}
+
+.block {
+  box-sizing: border-box;
+  background-color: blue;
+  border-radius: .2em;
+  border: groove .3em #ababff;
+}
+
+.block2 {
+  box-sizing: border-box;
+  background-color: green;
+}
+
+.block3 {
+  box-sizing: border-box;
+  background-color: yellow;
+}
+
+.block4 {
+  background-color: red;
+}
+
+.block5 {
+  background-color: purple;
+}
+
+.tetris-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;
+  width: 17.5rem;
+  height: 25rem;
+  background: linear-gradient(#d0d0d0, #f0f0f0);
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset, 0 1px 0 #fff;
+  color: #85796b;
+}
+
+.score, .lines-display {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+}
 
 
 /* Small screens - moves navbar to bottom of page*/
