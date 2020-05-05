@@ -119,7 +119,8 @@ const SpaceInvaders= () => {
           setTimeout(() => squares[currentLaserIndex].classList.remove('laser'), 100)
         }
       }
-  
+      
+      // spacebar to fire
       switch(e.keyCode) {
         case 32:
           laserId = setInterval(moveLaser, 100)
@@ -136,7 +137,7 @@ const SpaceInvaders= () => {
         <div className="spaceWrapper">
 
             <h3>Score: <span id="result"></span></h3>
-            {/* <button className="memoryReset" onClick={this.startGame}>Start</button> */}
+            {/* <button className="btn-sml" onClick={this.startGame}>Start</button> */}
             <div className="spaceGrid">
             {/* 15 x15 grid so 225 divs  simple way to create = div*100 */}
                 <div></div>

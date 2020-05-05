@@ -121,6 +121,7 @@ class Memory extends Component {
         }else {
             Swal.fire({
                 toast: true,
+                position: 'center-center',
                 title: 'Sorry... Try again!',
                 showClass: {
                   popup: 'animated fadeInDown'
@@ -164,25 +165,33 @@ class Memory extends Component {
 
 
   render() {
-    return (
-      <>
-      <div className="memoryWrapper">
-          <div className="memoryContainer">
-            <h1>Memory Game</h1>
-                <h2 className="memoryScore">Score: {this.state.resultDisplay}</h2>
-                <button className="memoryReset" onClick={this.reset}>Reset</button>
-                <div className="memoryGrid">
-                    {this.state.cardArray.map((card, i)=>(
-                        <div className="memoryDeck" key={i}>
-                            <img className="memoryCard" src={'/images/memory/colors.jpg'} alt={card.name} data-id={i} onClick={(event)=>this.flipCard(event, card.name)}/> 
-                        </div>
-                    ))}
+        return (
+        <>
+            <div className="memoryWrapper">
+                <div className="memoryContainer">
+                    <header className="header">
+                        <h1 className="fw-300 t-ucase">Welcome 
+                            <br/>
+                            <span className="fw-400 t-wide t-big t-ucase">to Memory</span>
+                        </h1>
+                    </header>
+                    <center>
+                        <h2 className="memoryScore">Score: {this.state.resultDisplay}</h2>
+                        <button className="btn-lg" onClick={this.reset}>Reset</button>
+                    </center>
+                    <main className="memoryGrid">
+                        {this.state.cardArray.map((card, i)=>(
+                            <div className="memoryDeck" key={i}>
+                                <img className="memoryCard" src={'/images/memory/colors.jpg'} alt={card.name} 
+                                    data-id={i} onClick={(event)=>this.flipCard(event, card.name)}/> 
+                            </div>
+                        ))}
+                    </main>
                 </div>
             </div>
-        </div>
-      </>
-    )
-  }
+        </>
+        )
+    }
 }
   
 export default Memory;

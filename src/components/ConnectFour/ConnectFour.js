@@ -52,6 +52,8 @@ class ConnectFour extends Component {
                 square2.classList.contains('connectPlayer-one') &&
                 square3.classList.contains('connectPlayer-one') &&
                 square4.classList.contains('connectPlayer-one')) {
+                Swal.fire('Red Player Wins!');
+                this.setState({currentPlayer: 'Game Over'});
                 this.setState({results: 'Red Player Wins!'});
             } 
             //now check to see if they all have the classname player two
@@ -59,6 +61,8 @@ class ConnectFour extends Component {
                 square2.classList.contains('connectPlayer-two') &&
                 square3.classList.contains('connectPlayer-two') &&
                 square4.classList.contains('connectPlayer-two')) {
+                Swal.fire('Blue Player Wins!');
+                this.setState({currentPlayer: 'Game Over'});
                 this.setState({results: 'Blue Player Wins!'});
             }
         }
@@ -79,10 +83,18 @@ class ConnectFour extends Component {
 
   render() {
     return (
-      <div className="connectContainer">
-        <div className="connectWrapper">
-         <h2>Player: {this.state.currentPlayer}</h2>
-            <button className="memoryReset" onClick={this.reset}>Reset</button>
+      <div className="connectWrapper">
+        <div className="connectContainer">
+            <header className="header">
+                <h1 className="fw-300 t-ucase">Welcome to
+                    <br/>
+                    <span className="fw-400 t-wide t-big t-ucase">Connect four</span>
+                </h1>
+            </header>
+            <center>
+                <h2>Player: {this.state.currentPlayer}</h2>
+                <button className="btn-lg" onClick={this.reset}>Reset</button>
+            </center>
             <div className="connectGrid">
                 <div onClick={(event)=>this.addChip(event, 42)}></div>
                 <div onClick={(event)=>this.addChip(event, 41)}></div>

@@ -8,6 +8,7 @@ import ConnectFour from '../ConnectFour/ConnectFour';
 import Snake from '../Snake/Snake';
 import SpaceInvaders from '../SpaceInvaders/SpaceInvaders';
 import Tetris from '../Tetris/Tetris';
+import Home from '../Home/Home';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <>
      <Router>
         <Nav />
+          <Route exact path="/" component={Home}/>
           <Route exact path="/memory" component={Memory}/>
           <Route exact path="/whack" component={WhackaAMouse}/>
           <Route exact path="/snake" component={Snake}/>

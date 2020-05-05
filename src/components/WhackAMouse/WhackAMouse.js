@@ -90,7 +90,7 @@ class WhackAMouse extends Component {
                 <h2>Score: <span id="wackScore">0</span></h2>
 
                 <h2>Time Left: <span id="wackTime">60</span></h2>
-                <button className="memoryReset" onClick={this.startGame}>Start Game</button>
+                <button className="btn-lg" onClick={this.startGame}>Start Game</button>
                 <br/>
                 <br/>
                 <div className="wackGrid">

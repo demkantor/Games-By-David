@@ -142,7 +142,7 @@ class Snake extends Component {
     return (
       <div className="snakeWrapper">
         <div className="snakeContainer">
-            <button className="memoryReset" onClick={this.startGame}>Start / Reset</button>
+            <button className="btn-lg" onClick={this.startGame}>Start / Reset</button>
             <div>Score: {this.state.displayScore}</div>
             <br/>
             <div className="snakeGrid">

@@ -39,6 +39,31 @@ a {
   text-decoration: none;
 }
 
+.btn-sml {
+  margin: 1em;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  padding: .8em;
+  border-radius: 3em;
+  transition: var(--transition-speed);
+}
+
+.btn-lg {
+  margin: 1em;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  padding: 1.3em;
+  border-radius: 3em;
+  transition: var(--transition-speed);
+}
+
+.btn-sml:hover, .btn-lg:hover {
+  background: var(--bg-secondary);
+  transform: scale(1.1);
+  transition: var(--transition-speed);
+}
+
+/* navbar styles */
 .navbar {
   position: fixed;
   background-color: var(--bg-primary);
@@ -91,17 +116,9 @@ a {
   margin: 0 1.5rem;
 }
 
-/* anything with fa comes from font awesome, remove these if font awesome is removed */
-.fa-primary {
+/*  svg colors */
+.fa-primary, .fa-secondary {
   color: #ec1515;
-}
-
-.fa-secondary {
-  color: #ec1515;
-}
-
-.fa-primary,
-.fa-secondary {
   transition: var(--transition-speed);
 }
 
@@ -122,8 +139,7 @@ a {
   transition: var(--transition-speed);
 }
 
-.logo-text
-{
+.logo-text {
   display: inline;
   position: absolute;
   left: -999px;
@@ -134,7 +150,7 @@ a {
   transform: rotate(-180deg);
 }
 
-.final{
+.final {
   opacity: .1;
   margin: 1em;
   padding-left: 10em;
@@ -150,21 +166,64 @@ a {
   border-radius: 10px;
 }
 
-.memoryWrapper{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* home - highscores */
+.home-wrapper{
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: var(--grad-quaternary);
+}
+
+.home-container{
+  padding-left: 20vw;
+}
+
+/* header styles */
+.header {
+  font-size: 1.6rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.t-ucase {
+  text-transform: uppercase;
+}
+
+.t-big {
+  font-size: 1.5em;
+}
+
+.t-wide {
+  letter-spacing: 1.5rem;
+}
+
+.t-close {
+  letter-spacing: 1rem;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+/* memory game styles */
+.memoryWrapper {
   background: var(--grad-tertiary);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
 
-.memoryContainer{
-  margin-left: 20vw;
+.memoryContainer {
+  padding-left: 5vw;
 }
 
-.memoryGrid{
+.memoryGrid {
+  margin-left: 20vw;
   background-image: url('/images/memory/savana.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -175,43 +234,29 @@ a {
   width: 400px;
 }
 
-.memoryDeck{
+.memoryDeck {
   height: 100px;
   overflow: hidden;
 }
 
-.memoryCard{
+.memoryCard {
   margin: 0;
   padding: 0;
   width: 100px;
   height: 100px;
 }
 
-.memoryBlank{
+.memoryBlank {
   opacity: 0.1;
   width: 100px;
   height: 100px;
 }
 
-.memoryScore{
+.memoryScore {
   margin-left: 3vw;
 }
 
-.memoryReset{
-  margin: 1em;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  padding: 1em;
-  border-radius: 3em;
-  transition: var(--transition-speed);
-}
-
-.memoryReset:hover{
-  background: var(--bg-secondary);
-  transform: scale(1.1);
-  transition: var(--transition-speed);
-}
-
+/* wack a mole styles */
 .wackWrapper{
   height: 100vh;
   width: 85vw;
@@ -248,31 +293,20 @@ a {
   background-size: cover;
 }
 
-.connectContainer{
-  margin: 0;
+/* connect four styles */
+.connectWrapper{
+  background: var(--grad-tertiary);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
 
-.connectContainer::after {
-  content: "";
-  background: url("/images/connectFour/connect4.png");
-  background-size: cover;
-  opacity: 0.2;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
-
-.connectWrapper{
-  margin-left: 15vw;
+.connectContainer{
+  padding-left: 5vw;
 }
 
 .connectGrid{
+  margin-left: 15vw;
   border: 1em ridge;
   display: flex;
   flex-wrap: wrap;
@@ -357,6 +391,7 @@ a {
   display: none;
 }
 
+/* space invaders styles */
 .spaceWrapper{
   margin-left: 15vw;
   overflow: hidden;
@@ -398,52 +433,22 @@ a {
   background-size: contain;
 }
 
+/* tetris styles */
 .tetris-wrapper {
-  font-size: 1.6rem;
   box-sizing: border-box;
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  color: #d8edea;
   background: var(--grad-tertiary);
 }
 
 .tetris-container{
-  padding-left: 45vw;
+  padding-left: 5vw;
 }
 
-.tetris-header {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-div {
+t-div {
   height: 2rem;
   width: 2rem;
-}
-
-.t-ucase {
-  text-transform: uppercase;
-}
-
-.t-big {
-  font-size: 1.5em;
-}
-
-.t-wide {
-  letter-spacing: 1.5rem;
-}
-
-.t-close {
-  letter-spacing: 1rem;
-}
-
-.fw-300 {
-  font-weight: 300;
-}
-
-.fw-400 {
-  font-weight: 400;
 }
 
 .score-display {
@@ -497,14 +502,6 @@ div {
 .block3 {
   box-sizing: border-box;
   background-color: yellow;
-}
-
-.block4 {
-  background-color: red;
-}
-
-.block5 {
-  background-color: purple;
 }
 
 .tetris-display {
