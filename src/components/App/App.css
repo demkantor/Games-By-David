@@ -12,6 +12,7 @@
   --grad-secondary: linear-gradient(0deg, #8aed9ee6 0%, #036f1d 100%);
   --grad-tertiary: radial-gradient(circle, #aeb3c4 0%, #68a4cc 89% ,#5e88bf 100%);
   --grad-quaternary: radial-gradient(circle, #c4b0ae 0%, #cc6f68 89% ,#bf6d5e 100%);
+  --grad-quinary: radial-gradient(circle, #353232 0%, #755755 89% ,#504644 100%);
   --transition-speed: 600ms;
 }
 
@@ -210,16 +211,16 @@ a {
   font-weight: 400;
 }
 
+.container {
+  padding-left: 5vw;
+}
+
 /* memory game styles */
 .memoryWrapper {
   background: var(--grad-tertiary);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-}
-
-.memoryContainer {
-  padding-left: 5vw;
 }
 
 .memoryGrid {
@@ -259,14 +260,14 @@ a {
 /* wack a mole styles */
 .wackWrapper{
   height: 100vh;
-  width: 85vw;
-  padding-left: 15vw;
+  width: 100vw;
   background: var(--grad-quaternary);
   background-size: contain;
   overflow: hidden;
 }
 
 .wackGrid{
+  margin-left: 20vw;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -301,10 +302,6 @@ a {
   overflow: hidden;
 }
 
-.connectContainer{
-  padding-left: 5vw;
-}
-
 .connectGrid{
   margin-left: 15vw;
   border: 1em ridge;
@@ -329,31 +326,16 @@ a {
   border-radius: 50%;
 }
 
+/* snake styles */
 .snakeWrapper{
-  margin: 0;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-}
-
-.snakeWrapper::after {
-  content: "";
   background: var(--grad-tertiary);
-  background-size: cover;
-  opacity: 0.6;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
-
-.snakeContainer{
-  margin-left: 25vw;
 }
 
 .snakeGrid {
+  margin-left: 15vw;
   width: 400px;
   height: 400px;
   display: flex;
@@ -393,17 +375,20 @@ a {
 
 /* space invaders styles */
 .spaceWrapper{
-  margin-left: 15vw;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
+  background: var(--grad-quinary);
 }
 
 .spaceGrid{
+  margin-left: 15vw;
   display: flex;
   flex-wrap: wrap;
   border: solid 1px;
   width: 450px;
   height: 450px;
-  background-color: pink;
+  background-color: var(--bg-tertiary);
 }
 
 .spaceGrid div {
@@ -546,27 +531,33 @@ t-div {
     justify-content: center;
   }
 
-  .memoryContainer{
+  .container{
+    padding-left: 0vw;
+  }
+
+  /* shrink memory to fit on small screens */
+
+  .memoryGrid{
     margin-left: 1vw;
   }
 
+  /* shrink wack-a-mole to fit on small screens */
   .wackWrapper{
-    padding-left: 10vw;
-    width: 90vw;
+    padding-left: 0vw;
+    width: 100vw;
   }
 
   .wackGrid{
+    margin-left: 10vw;
     width: 80vmin;
     height: 65vmin;
     max-width: 600px;
     max-height: 600px;
   }
 
-  .snakeContainer{
-    margin-left: 8vw;
-  }
-
+  /* shrink snake to fit small screens */
   .snakeGrid {
+    margin-left: 8vw;
     width: 300px;
     height: 300px;
   }
@@ -576,16 +567,20 @@ t-div {
     height: 15px;
   }
 
-  .dpad{
+  /* only show dpad in small screens */
+  .dpad {
     display: grid;
-    grid-template-columns: 65px auto 65px;
-    grid-template-rows: repeat(3, 45px);
-    margin-top: 2vh;
-    margin-left: 26vw;
+    grid-template-columns: 6em auto 6em;
+    grid-template-rows: repeat(3, 5em);
+    margin-top: -8vh;
+    margin-left: 50vw;
     height: 20vh;
     width: 20vh;
+    justify-content: center;
+    text-align: center;
   }
 
+  /* dpad buttons */
   .fas{
     color: var(--bg-primary);
     transition: var(--transition-speed);
@@ -596,6 +591,38 @@ t-div {
     transform: scale(1.1);
     transition: var(--transition-speed);
   }
+
+  /* connect four styles for small screens */
+  .connectGrid{
+    margin-left: 8vw;
+    border: 1em ridge;
+    height: 270px;
+    width: 315px;
+  }
+  
+  .connectGrid div{
+    height: 45px;
+    width: 45px;
+  }
+
+  /* space invaders styles for small screens */
+  .spaceGrid{
+    margin-left: 6vw;
+    width: 360px;
+    height: 360px;
+  }
+  
+  .spaceGrid div {
+    width: 24px;
+    height: 24px;
+  }
+
+
+
+
+
+
+
 
 }
 

@@ -85,24 +85,34 @@ class WhackAMouse extends Component {
     render() {
         return (
         <>
-        <div className="wackWrapper">
-            <h1>Whack-A-Mouse!</h1>
-                <h2>Score: <span id="wackScore">0</span></h2>
-
-                <h2>Time Left: <span id="wackTime">60</span></h2>
-                <button className="btn-lg" onClick={this.startGame}>Start Game</button>
-                <br/>
-                <br/>
-                <div className="wackGrid">
-                    <div className="wackSquare" id="1" onMouseUp={()=>this.hit("1")}></div>
-                    <div className="wackSquare" id="2" onMouseUp={()=>this.hit("2")}></div>
-                    <div className="wackSquare" id="3" onMouseUp={()=>this.hit("3")}></div>
-                    <div className="wackSquare" id="4" onMouseUp={()=>this.hit("4")}></div>
-                    <div className="wackSquare" id="5" onMouseUp={()=>this.hit("5")}></div>
-                    <div className="wackSquare" id="6" onMouseUp={()=>this.hit("6")}></div>
-                    <div className="wackSquare" id="7" onMouseUp={()=>this.hit("7")}></div>
-                    <div className="wackSquare" id="8" onMouseUp={()=>this.hit("8")}></div>
-                    <div className="wackSquare" id="9" onMouseUp={()=>this.hit("9")}></div>
+            <div className="wackWrapper">
+                <div className="container">
+                    <header className="header">
+                        <h1 className="fw-300 t-ucase">Welcome to
+                            <br/>
+                            <span className="fw-400 t-wide t-big t-ucase">Wack-A-Mouse</span>
+                        </h1>
+                    </header>
+                    <center>
+                        <h2>Score: <span id="wackScore">0</span></h2>
+                        <h2>Time Left: <span id="wackTime">60</span></h2>
+                    </center>
+                    
+                    <button className="btn-lg" onClick={this.startGame}>Start Game</button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div className="wackGrid">
+                        <div className="wackSquare" id="1" onMouseUp={()=>this.hit("1")}></div>
+                        <div className="wackSquare" id="2" onMouseUp={()=>this.hit("2")}></div>
+                        <div className="wackSquare" id="3" onMouseUp={()=>this.hit("3")}></div>
+                        <div className="wackSquare" id="4" onMouseUp={()=>this.hit("4")}></div>
+                        <div className="wackSquare" id="5" onMouseUp={()=>this.hit("5")}></div>
+                        <div className="wackSquare" id="6" onMouseUp={()=>this.hit("6")}></div>
+                        <div className="wackSquare" id="7" onMouseUp={()=>this.hit("7")}></div>
+                        <div className="wackSquare" id="8" onMouseUp={()=>this.hit("8")}></div>
+                        <div className="wackSquare" id="9" onMouseUp={()=>this.hit("9")}></div>
+                    </div>
                 </div>
             </div>
         </>

@@ -84,7 +84,7 @@ class ConnectFour extends Component {
   render() {
     return (
       <div className="connectWrapper">
-        <div className="connectContainer">
+        <div className="container">
             <header className="header">
                 <h1 className="fw-300 t-ucase">Welcome to
                     <br/>

@@ -141,10 +141,13 @@ class Snake extends Component {
   render() {
     return (
       <div className="snakeWrapper">
-        <div className="snakeContainer">
-            <button className="btn-lg" onClick={this.startGame}>Start / Reset</button>
-            <div>Score: {this.state.displayScore}</div>
-            <br/>
+        <div className="container">
+          <header className="header">
+              <h1 className="fw-300 t-ucase">Welcome to
+                  <br/>
+                  <span className="fw-400 t-wide t-big t-ucase">Snake</span>
+              </h1>
+          </header>
             <div className="snakeGrid">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
@@ -190,6 +193,8 @@ class Snake extends Component {
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
+            <button className="btn-sml" onClick={this.startGame}>Start / Reset</button>
+            <div>Score: {this.state.displayScore}</div>
         </div>
         <div className="dpad">
           <i></i>
@@ -200,7 +205,7 @@ class Snake extends Component {
           <i className="fas fa-arrow-alt-circle-right fa-4x" onClick={()=>this.phoneControl('right')}></i>
           <i></i>
           <i className="fas fa-arrow-alt-circle-down fa-4x" onClick={()=>this.phoneControl('down')}></i>
-          </div>
+        </div>
     </div>
     )
   }

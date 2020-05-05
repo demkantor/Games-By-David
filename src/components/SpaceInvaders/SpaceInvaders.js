@@ -135,7 +135,7 @@ const SpaceInvaders= () => {
     return (
       <>
         <div className="spaceWrapper">
-
+          <div className="container">
             <h3>Score: <span id="result"></span></h3>
             {/* <button className="btn-sml" onClick={this.startGame}>Start</button> */}
             <div className="spaceGrid">
@@ -367,6 +367,7 @@ const SpaceInvaders= () => {
                 <div></div>
                 <div></div>
                 <div></div>
+                </div>
             </div>
         </div>
       </>

@@ -168,7 +168,7 @@ class Memory extends Component {
         return (
         <>
             <div className="memoryWrapper">
-                <div className="memoryContainer">
+                <div className="container">
                     <header className="header">
                         <h1 className="fw-300 t-ucase">Welcome 
                             <br/>
