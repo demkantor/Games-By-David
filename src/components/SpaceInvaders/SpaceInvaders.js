@@ -136,6 +136,12 @@ const SpaceInvaders= () => {
       <>
         <div className="spaceWrapper">
           <div className="container">
+            <header className="header">
+              <h1 className="fw-300 t-ucase">Welcome to
+                <br/>
+                <span className="fw-400 t-wide t-big t-ucase">Space Invaders</span>
+              </h1>
+            </header>
             <h3>Score: <span id="result"></span></h3>
             {/* <button className="btn-sml" onClick={this.startGame}>Start</button> */}
             <div className="spaceGrid">
