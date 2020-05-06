@@ -194,7 +194,7 @@ class Snake extends Component {
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
             <button className="btn-sml" onClick={this.startGame}>Start / Reset</button>
-            <div>Score: {this.state.displayScore}</div>
+            <div className="mini-score f-big fw-400">Score: {this.state.displayScore}</div>
         </div>
         <div className="dpad">
           <i></i>

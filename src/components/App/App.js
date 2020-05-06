@@ -9,6 +9,10 @@ import Snake from '../Snake/Snake';
 import SpaceInvaders from '../SpaceInvaders/SpaceInvaders';
 import Tetris from '../Tetris/Tetris';
 import Home from '../Home/Home';
+import PacMan from '../PacMan/PacMan';
+import DiceGame from '../DiceGame/DiceGame';
+import Chess from '../Chess/Chess';
+import Rock from '../Rock/Rock';
 
 function App() {
 
@@ -23,6 +27,10 @@ function App() {
           <Route exact path="/connect" component={ConnectFour}/>
           <Route exact path="/tetris" component={Tetris}/>
           <Route exact path="/space" component={SpaceInvaders}/>
+          <Route exact path="/pac" component={PacMan}/>
+          <Route exact path="/dice" component={DiceGame}/>
+          <Route exact path="/chess" component={Chess}/>
+          <Route exact path="/r-p-s" component={Rock}/>
      </Router>
     </>
   );

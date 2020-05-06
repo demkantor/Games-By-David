@@ -188,7 +188,7 @@ class Nav extends Component {
       </li>
 
       <li className="nav-item">
-        <a href="#nav" className="nav-link">
+        <a href="#pac" className="nav-link">
         <svg aria-hidden="true" 
         focusable="false" 
         data-prefix="fas" 
@@ -202,6 +202,60 @@ class Nav extends Component {
           className="fa-primary"
         ></path></svg>
           <span className="link-text">Pac-Man</span>
+        </a>
+      </li>
+
+      <li className="nav-item">
+        <a href="#dice" className="nav-link">
+        <svg aria-hidden="true" 
+        focusable="false" 
+        data-prefix="fas" 
+        data-icon="dice" 
+        className="svg-inline--fa fa-dice fa-w-20" 
+        role="img" 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 640 512">
+          <path fill="currentColor" 
+          d="M592 192H473.26c12.69 29.59 7.12 65.2-17 89.32L320 417.58V464c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48V240c0-26.51-21.49-48-48-48zM480 376c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm-46.37-186.7L258.7 14.37c-19.16-19.16-50.23-19.16-69.39 0L14.37 189.3c-19.16 19.16-19.16 50.23 0 69.39L189.3 433.63c19.16 19.16 50.23 19.16 69.39 0L433.63 258.7c19.16-19.17 19.16-50.24 0-69.4zM96 248c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm128 128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm0-128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm0-128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24zm128 128c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"
+          className="fa-primary"
+        ></path></svg>
+          <span className="link-text">Dice Game</span>
+        </a>
+      </li>  
+
+      <li className="nav-item">
+        <a href="#chess" className="nav-link">
+        <svg aria-hidden="true" 
+        focusable="false" 
+        data-prefix="fas" 
+        data-icon="chess-knight" 
+        className="svg-inline--fa fa-chess-knight fa-w-12" 
+        role="img" 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 384 512">
+          <path fill="currentColor" 
+          d="M19 272.47l40.63 18.06a32 32 0 0 0 24.88.47l12.78-5.12a32 32 0 0 0 18.76-20.5l9.22-30.65a24 24 0 0 1 12.55-15.65L159.94 208v50.33a48 48 0 0 1-26.53 42.94l-57.22 28.65A80 80 0 0 0 32 401.48V416h319.86V224c0-106-85.92-192-191.92-192H12A12 12 0 0 0 0 44a16.9 16.9 0 0 0 1.79 7.58L16 80l-9 9a24 24 0 0 0-7 17v137.21a32 32 0 0 0 19 29.26zM52 128a20 20 0 1 1-20 20 20 20 0 0 1 20-20zm316 320H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+          className="fa-primary"
+        ></path></svg>
+          <span className="link-text">Chess</span>
+        </a>
+      </li> 
+
+      <li className="nav-item">
+        <a href="#r-p-s" className="nav-link">
+        <svg aria-hidden="true" 
+        focusable="false" 
+        data-prefix="fas" 
+        data-icon="hand-scissors" 
+        className="svg-inline--fa fa-hand-scissors fa-w-16" 
+        role="img" 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 512 512">
+          <path fill="currentColor" 
+          d="M216 440c0-22.092 17.909-40 40-40v-8h-32c-22.091 0-40-17.908-40-40s17.909-40 40-40h32v-8H48c-26.51 0-48-21.49-48-48s21.49-48 48-48h208v-13.572l-177.551-69.74c-24.674-9.694-36.818-37.555-27.125-62.228 9.693-24.674 37.554-36.817 62.228-27.124l190.342 74.765 24.872-31.09c12.306-15.381 33.978-19.515 51.081-9.741l112 64A40.002 40.002 0 0 1 512 168v240c0 18.562-12.77 34.686-30.838 38.937l-136 32A39.982 39.982 0 0 1 336 480h-80c-22.091 0-40-17.908-40-40z"
+          className="fa-primary"
+        ></path></svg>
+          <span className="link-text">Rock Paper Scissors</span>
         </a>
       </li>
 

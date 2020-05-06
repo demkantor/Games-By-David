@@ -137,7 +137,7 @@ class Memory extends Component {
         this.setState({
             cardsChosen: [],
             cardsChosenId: []
-        });
+        })
         this.updateScore();
     }
 

@@ -214,6 +214,10 @@ a {
   transition: var(--transition-speed);
 }
 
+.mini-score{
+  margin-left: 2em;
+}
+
 /* header styles */
 .header {
   font-size: 1.6rem;
@@ -260,10 +264,11 @@ a {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  display: flex;
+  justify-content: space-around;
 }
 
 .memoryGrid {
-  margin-left: 20vw;
   background-image: url('/images/memory/savana.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -292,8 +297,9 @@ a {
   height: 100px;
 }
 
+/* only show small scoreboard on small screens ------------ change to display none */
 .memoryScore {
-  margin-left: 3vw;
+  display: block;
 }
 
 /* wack a mole styles */
@@ -371,10 +377,11 @@ a {
   width: 100vw;
   overflow: hidden;
   background: var(--grad-primary);
+  display: flex;
+  justify-content: space-around;
 }
 
 .snakeGrid {
-  margin-left: 15vw;
   width: 400px;
   height: 400px;
   display: flex;
@@ -598,6 +605,10 @@ t-div {
   }
 
   /* shrink snake to fit small screens */
+  .snakeWrapper{
+    display: block;
+  }
+
   .snakeGrid {
     margin-left: 8vw;
     width: 300px;

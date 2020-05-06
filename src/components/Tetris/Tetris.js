@@ -12,11 +12,14 @@ class Tetris extends Component {
         GRID_WIDTH = 10;
         GRID_HEIGHT = 20;
         GRID_SIZE = this.GRID_WIDTH * this.GRID_HEIGHT;
+        squares = null;
         currentIndex = 0;
         currentRotation = 0;
         width = this.GRID_WIDTH;
         timerId = null;
         nextRandom = 0;
+        currentPosition = 4;
+        displayWidth = 4;
                 
         //The Tetrominoes
         lTetromino = [
@@ -60,12 +63,6 @@ class Tetris extends Component {
         random = Math.floor(Math.random() * this.theTetrominoes.length);
         current = this.theTetrominoes[this.random][this.currentRotation];
       
-        //move the Tetromino moveDown
-        currentPosition = 4;
-      
-        //show previous tetromino in scoreDisplay
-        displayWidth = 4;
-      
         smallTetrominoes = [
             [1, this.displayWidth + 1, this.displayWidth * 2 + 1, 2], /* lTetromino */
             [0, this.displayWidth, this.displayWidth + 1, this.displayWidth * 2 + 1], /* zTetromino */
@@ -75,18 +72,18 @@ class Tetris extends Component {
         ];
 
         addScore=()=> {
-            const grid = this.state.grid;
-            let squares = Array.from(grid.querySelectorAll('t-div'));
             for (this.currentIndex = 0; this.currentIndex < this.GRID_SIZE; this.currentIndex += this.GRID_WIDTH) {
                 const row = [this.currentIndex, this.currentIndex + 1, this.currentIndex + 2, this.currentIndex + 3, 
                     this.currentIndex + 4, this.currentIndex + 5, this.currentIndex + 6, this.currentIndex + 7, this.currentIndex + 8, this.currentIndex + 9]
-                if (row.every(index => squares[index].classList.contains('block2'))) {
+                    let squares = this.state.squares
+                    if (row.every(index => squares[index].classList.contains('block2'))) {
                     this.setState({score: this.state.score + 10});
                     this.setState({lines: this.state.lines + 1});
                     row.forEach(index => {
                         squares[index].classList.remove('block2') || squares[index].classList.remove('block')
                     });
                 const squaresRemoved = squares.splice(this.currentIndex,this.width);
+                const grid = this.state.grid;
                 squares = squaresRemoved.concat(squares);
                 squares.forEach(cell => grid.appendChild(cell));
                 }
@@ -135,7 +132,8 @@ class Tetris extends Component {
                 let gridElement = document.createElement("t-div");
                 previousGrid.appendChild(gridElement);
             }
-            this.setState({grid: grid});
+            this.setState({grid: grid})
+            this.setState({squares: Array.from(grid.querySelectorAll('t-div'))})
         }
 
         displayShape=()=> {
@@ -151,8 +149,7 @@ class Tetris extends Component {
       
         //draw the shape
         draw=()=>{
-            const grid = this.state.grid;
-            const squares = Array.from(grid.querySelectorAll('t-div'));
+            const squares = this.state.squares;
             this.current.forEach(index => {
                 squares[this.currentPosition + index].classList.add('block')
             });
@@ -160,9 +157,7 @@ class Tetris extends Component {
 
         //freeze the shape
         freeze=()=> {
-            // if block has settled
-            const grid = this.state.grid;
-            const squares = Array.from(grid.querySelectorAll('t-div'));
+            const squares = this.state.squares;
             if(this.current.some(index => squares[this.currentPosition + index + this.width].classList.contains('block3') 
             || squares[this.currentPosition + index + this.width].classList.contains('block2'))) {
                 this.current.forEach(index => squares[index + this.currentPosition].classList.add('block2'));
@@ -179,8 +174,7 @@ class Tetris extends Component {
         }
 
         gameOver=()=> {
-            const grid = this.state.grid;
-            const squares = Array.from(grid.querySelectorAll('t-div'));
+            const squares = this.state.squares;
             if(this.current.some(index => squares[this.currentPosition + index].classList.contains('block2'))) {
                 this.setState({lines: 'end'});
                 clearInterval(this.timerId);
@@ -197,8 +191,7 @@ class Tetris extends Component {
       
         //move right and prevent collisions with shapes moving right
         moveleft=()=> {
-            const grid = this.state.grid;
-            const squares = Array.from(grid.querySelectorAll('t-div'));
+            const squares = this.state.squares;
             this.undraw();
             const isAtLeftEdge = this.current.some(index => (this.currentPosition + index) % this.width === 0);
             if(!isAtLeftEdge) this.currentPosition -= 1;
@@ -210,8 +203,7 @@ class Tetris extends Component {
 
         //move left and prevent collisions with shapes moving left
         moveright=()=> {
-            const grid = this.state.grid;
-            const squares = Array.from(grid.querySelectorAll('t-div'));
+            const squares = this.state.squares;
             this.undraw();
             const isAtRightEdge = this.current.some(index => (this.currentPosition + index) % this.width === this.width - 1);
             if(!isAtRightEdge) this.currentPosition += 1;
@@ -259,8 +251,7 @@ class Tetris extends Component {
       
         //undraw the shape
         undraw=()=> {
-            const grid = this.state.grid;
-            const squares = Array.from(grid.querySelectorAll('t-div'));
+            const squares = this.state.squares;
             this.current.forEach(index => {
                 squares[this.currentPosition + index].classList.remove('block')
             });
