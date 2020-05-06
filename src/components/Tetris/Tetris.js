@@ -272,9 +272,9 @@ class Tetris extends Component {
             <div className="tetris-wrapper">
                 <div className="tetris-container">
                     <header className="header">
-                        <h1 className="fw-300 t-ucase">Welcome 
+                        <h1 className="fw-300 t-ucase">Let's Play
                             <br/>
-                            <span className="fw-400 t-wide t-big t-ucase">to tetris</span>
+                            <span className="fw-400 t-wide f-big t-ucase">tetris</span>
                         </h1>
                     </header>
                     <main className="tetris-game-area">
@@ -283,15 +283,15 @@ class Tetris extends Component {
                         </div>
                         <section>
                             <div className="tetris-display">
-                                <h1 className="score fw-400 t-ucase">Your Score 
+                                <h1 className="t-score fw-400 t-ucase">Your Score 
                                     <br/> 
-                                    <span className="score-display t-ucase fw-300">{this.state.score}</span>
+                                    <span className="t-score-display t-ucase fw-300">{this.state.score}</span>
                                 </h1>
                                 <div className="previous-shape">
                                     <div className="previous-grid"></div>
                                 </div>
-                                <h2 className="lines-display fw-400 t-ucase">Lines:
-                                    <span className="lines-score">{this.state.lines}</span>
+                                <h2 className="t-lines-display fw-400 t-ucase">Lines:
+                                    <span>{this.state.lines}</span>
                                 </h2>
                             </div>
                             <button className="btn-lg" onClick={this.startGame}>Start / Pause</button>

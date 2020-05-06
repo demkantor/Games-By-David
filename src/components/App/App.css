@@ -13,6 +13,8 @@
   --grad-tertiary: radial-gradient(circle, #aeb3c4 0%, #68a4cc 89% ,#5e88bf 100%);
   --grad-quaternary: radial-gradient(circle, #c4b0ae 0%, #cc6f68 89% ,#bf6d5e 100%);
   --grad-quinary: radial-gradient(circle, #353232 0%, #755755 89% ,#504644 100%);
+  --grad-senary: radial-gradient(circle, #e5c8ff 0%, #bc99f5 89% ,#9c48fc 100%);
+  --grad-septenary: radial-gradient(circle, #f3eeae 0%, #f5e58d 89% ,#ffd620 100%);
   --transition-speed: 600ms;
 }
 
@@ -173,10 +175,43 @@ a {
   height: 100vh;
   width: 100vw;
   background: var(--grad-quaternary);
+  overflow-y: auto;
 }
 
 .home-container{
   padding-left: 20vw;
+}
+
+.score-wrapper {
+  margin: 1em;
+  padding: 4em;
+  min-height: 30em;
+  max-width: 100vw;
+  top: 20vh;
+  left: 1em;
+  right: 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.score-card {
+  margin: 1.5em;
+  padding: .5em;
+  display: flex;
+  flex-wrap: wrap;
+  height: 26em;
+  width: 18em;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border-radius: 1em;
+  box-shadow: -1rem 0 3rem #000;
+  text-align: center;
+  transition: var(--transition-speed);
+}
+
+.score-card:hover {
+  transform: translateY(-2em);
+  transition: var(--transition-speed);
 }
 
 /* header styles */
@@ -191,7 +226,11 @@ a {
   text-transform: uppercase;
 }
 
-.t-big {
+.f-xl {
+  font-size: 2.5em;
+}
+
+.f-big {
   font-size: 1.5em;
 }
 
@@ -296,7 +335,7 @@ a {
 
 /* connect four styles */
 .connectWrapper{
-  background: var(--grad-tertiary);
+  background: var(--grad-senary);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -331,7 +370,7 @@ a {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: var(--grad-tertiary);
+  background: var(--grad-primary);
 }
 
 .snakeGrid {
@@ -436,7 +475,7 @@ t-div {
   width: 2rem;
 }
 
-.score-display {
+.t-score-display {
   font-size: 5rem;
   color: rgb(133, 121, 107, 0.5);
 }
@@ -504,7 +543,7 @@ t-div {
   color: #85796b;
 }
 
-.score, .lines-display {
+.t-score, .t-lines-display {
   padding-top: 1rem;
   font-size: 1.2rem;
 }
@@ -535,8 +574,11 @@ t-div {
     padding-left: 0vw;
   }
 
-  /* shrink memory to fit on small screens */
+  .score-wrapper {
+    justify-content: space-evenly;
+  }
 
+  /* shrink memory to fit on small screens */
   .memoryGrid{
     margin-left: 1vw;
   }

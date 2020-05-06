@@ -143,9 +143,9 @@ class Snake extends Component {
       <div className="snakeWrapper">
         <div className="container">
           <header className="header">
-              <h1 className="fw-300 t-ucase">Welcome to
+              <h1 className="fw-300 t-ucase">Let's Play
                   <br/>
-                  <span className="fw-400 t-wide t-big t-ucase">Snake</span>
+                  <span className="fw-400 t-wide f-big t-ucase">Snake</span>
               </h1>
           </header>
             <div className="snakeGrid">

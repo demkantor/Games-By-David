@@ -170,9 +170,9 @@ class Memory extends Component {
             <div className="memoryWrapper">
                 <div className="container">
                     <header className="header">
-                        <h1 className="fw-300 t-ucase">Welcome 
+                    <h1 className="fw-300 t-ucase">Let's Play
                             <br/>
-                            <span className="fw-400 t-wide t-big t-ucase">to Memory</span>
+                            <span className="fw-400 t-wide f-big t-ucase">Memory</span>
                         </h1>
                     </header>
                     <center>

@@ -20,8 +20,7 @@ class Nav extends Component {
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
-            className="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
-          >
+            className="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
             <g className="fa-group">
               <path
                 fill="currentColor"
@@ -39,15 +38,33 @@ class Nav extends Component {
       </li>
 
       <li className="nav-item">
-        <a href="#memory" className="nav-link">
-          <svg aria-hidden="true" 
+        <a href="#/" className="nav-link">
+        <svg aria-hidden="true" 
           focusable="false" 
           data-prefix="fas" 
-          data-icon="sd-card" 
-          className="svg-inline--fa fa-sd-card fa-w-12" 
+          data-icon="star" 
+          className="svg-inline--fa fa-star fa-w-18" 
           role="img" 
           xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 384 512">
+          viewBox="0 0 576 512">
+            <path fill="currentColor" 
+            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+            className="fa-secondary"
+            ></path></svg>
+          <span className="link-text">High Scores</span>
+        </a>
+      </li>
+
+      <li className="nav-item">
+        <a href="#memory" className="nav-link">
+          <svg aria-hidden="true" 
+            focusable="false" 
+            data-prefix="fas" 
+            data-icon="sd-card" 
+            className="svg-inline--fa fa-sd-card fa-w-12" 
+            role="img" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 384 512">
               <path fill="currentColor" 
               d="M320 0H128L0 128v320c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64zM160 160h-48V64h48v96zm80 0h-48V64h48v96zm80 0h-48V64h48v96z"
               className="fa-secondary"
