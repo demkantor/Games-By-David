@@ -21,7 +21,9 @@ _Duration: on going project in spare time_
 
 
 ### Prerequisites
-    currently none!
+    postgres installed locally
+    database and tables setup as outlined in database.sql
+    all other dependencies will be included with npm install
 
 ## Installation
 
@@ -40,6 +42,11 @@ use built in jest routes for testing
     React
     CSS
     SweetAlerts
+    Node.js
+    Express
+    Redux
+    PostgreSQL
+
     
 
 ## License
