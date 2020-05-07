@@ -302,6 +302,48 @@ a {
   display: block;
 }
 
+/* tic-tac-toe specific styles */
+.tic-wrapper{
+  height: 100vh;
+  width: 100vw;
+  background: var(--grad-senary);
+  background-size: contain;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tic-board{
+  margin: 3em;
+  display: grid;
+  grid-template-columns: 15rem 15rem 15rem;
+  grid-gap: 0px;
+}
+
+.tic-square{
+  border: 1px gray solid;
+  height: 15rem;
+  transition: ease-in-out 300ms;
+}
+
+.tic-square:hover{
+  transition: ease-in-out 300ms;
+  transform: scale(1.1);
+}
+
+.tic-btn{
+  transition: ease-in-out 300ms;
+  color: whitesmoke;
+  width: 100%; 
+  height: 100%; 
+  font-size: 5em; 
+  background: var(--grad-septenary);
+}
+
+.tic-btn:hover{
+  transition: ease-in-out 300ms;
+}
+
 /* wack a mole styles */
 .wackWrapper{
   height: 100vh;
@@ -588,6 +630,20 @@ t-div {
   /* shrink memory to fit on small screens */
   .memoryGrid{
     margin-left: 1vw;
+  }
+
+  /* shrink tic-tac-toe board for smaller screens */
+  .tic-wrapper{
+    justify-content: space-evenly;
+  }
+
+  .tic-board{
+    margin-left: 13vw;
+    grid-template-columns: 10rem 10rem 10rem;
+  }
+  
+  .tic-square{
+    height: 10rem;
   }
 
   /* shrink wack-a-mole to fit on small screens */

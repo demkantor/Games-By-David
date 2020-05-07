@@ -74,6 +74,44 @@ class Nav extends Component {
       </li>
 
       <li className="nav-item">
+        <a href="#tic-tac-toe" className="nav-link">
+        <svg version="1.1" 
+        id="Layer_1" 
+        xmlns="http://www.w3.org/2000/svg" 
+        x="0px" y="0px"
+        viewBox="0 0 512 512">
+        <g><g>
+          <path fill="currentColor"
+          d="M55.652,0C24.968,0,0,24.968,0,55.652v183.652h239.304V0H55.652z"
+          className="fa-secondary"
+          ></path>
+        </g></g><g><g>
+          <path fill="currentColor"
+          d="M372.87,105.739c-18.413,0-33.391,14.978-33.391,33.391s14.978,33.391,33.391,33.391s33.391-14.978,33.391-33.391S391.283,105.739,372.87,105.739z"
+          className="fa-secondary"
+          ></path>
+	      </g></g><g><g>
+          <path fill="currentColor"
+          d="M456.348,0H272.696v239.304H512V55.652C512,24.968,487.032,0,456.348,0z M372.87,205.913c-36.826,0-66.783-29.956-66.783-66.783s29.956-66.783,66.783-66.783s66.783,29.956,66.783,66.783S409.696,205.913,372.87,205.913z"
+          className="fa-secondary"
+          ></path>
+	      </g></g><g><g>
+          <path fill="currentColor"
+          d="M0,272.696v183.652C0,487.032,24.968,512,55.652,512h183.652V272.696H0z M184.327,394.457c6.521,6.516,6.521,17.092,0,23.609c-6.521,6.521-17.087,6.521-23.609,0l-21.587-21.587l-21.587,21.587c-6.521,6.521-17.087,6.521-23.609,0c-6.521-6.516-6.521-17.092,0-23.609l21.587-21.587l-21.586-21.587c-6.521-6.516-6.521-17.092,0-23.609c6.521-6.521,17.087-6.521,23.609,0l21.586,21.587l21.587-21.587c6.521-6.521,17.087-6.521,23.609,0c6.521,6.516,6.521,17.092,0,23.609l-21.587,21.587L184.327,394.457z"
+          className="fa-secondary"
+          ></path>
+	      </g></g><g><g>
+          <path fill="currentColor"
+          d="M272.696,272.696V512h183.652C487.032,512,512,487.032,512,456.348V272.696H272.696z"
+          className="fa-secondary"
+          ></path>
+	      </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+          </svg>
+          <span className="link-text">Tic-Tac-Toe</span>
+        </a>
+      </li>
+
+      <li className="nav-item">
         <a href="#whack" className="nav-link">
         <svg aria-hidden="true" 
         focusable="false" 
