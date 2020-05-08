@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../App/App.css';
-
+import Swal from 'sweetalert2'
 
 
 class TicTacToe extends Component {
@@ -24,7 +24,7 @@ class TicTacToe extends Component {
       this.squares = Array(9).fill(null)
     }
   
-    makeMove(num) {
+    makeMove=(num)=> {
       if (!this.squares[num]) {
         this.squares.splice(num, 1, this.state.player);
         if(this.state.player === 'X'){
@@ -32,6 +32,8 @@ class TicTacToe extends Component {
         } else {
             this.setState({player: 'X'})
         }
+      } else {
+          Swal.fire(`Oops, can't go there!`)
       }
       this.setState({winner: this.calculateWinner()});
     }
@@ -55,7 +57,13 @@ class TicTacToe extends Component {
           this.squares[a] === this.squares[b] &&
           this.squares[a] === this.squares[c]
         ) {
-          return this.squares[a];
+            Swal.fire({
+                title: `${this.state.player} won!`,
+                onClose: () => {
+                    this.newGame()
+                } 
+            })
+          return (this.squares[a]);
         }
       }
       return null;
@@ -71,10 +79,12 @@ class TicTacToe extends Component {
                             <span className="fw-400 t-wide f-big t-ucase">Tic-Tac-Toe</span>
                         </h1>
                     </header>
-                    <h1>Current Player: {this.state.player}</h1>
                     <button className="btn-sml" onClick={this.newGame}>Start A New Game</button>
-                    {this.state.winner &&
+                    {this.state.winner
+                    ?
                         <h2>Player {this.state.winner} won this game!</h2>
+                    :
+                        <h1>Current Player: {this.state.player}</h1>
                     }
                     <main>
                         <div className="tic-board">

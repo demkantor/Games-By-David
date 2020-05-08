@@ -17,14 +17,27 @@ router.get('/all', (req, res) => {
       });
 });
 
+// return number of games played
+router.get('/games/played', (req, res) => {
+  console.log("in server games played GET");
+  const queryText = `SELECT * FROM "games_played" ORDER BY "id" ASC;`;
+  pool.query(queryText)
+      .then( (result) => {
+          res.send(result.rows);
+      })
+      .catch( (error) => {
+          console.log(`Error on GET all games played query ${error}`);
+          res.sendStatus(500);
+      });
+});
 
-// adjust high score
-router.put('/update/:id', (req, res) => {
-  console.log('In high score PUT with:', req.body, req.params);
+// adjust games played
+router.put('/games/played/update', (req, res) => {
+  console.log('In games played PUT with:', req.body, req.params);
   const game = req.body.game;
   const score = req.body.score;
-  const queryText = `UPDATE "high_scores" SET ${game} = $1 WHERE "id"=$2;`;
-  pool.query(queryText, [score, Number(req.params.id)])
+  const queryText = `UPDATE "games_played" SET ${game} = $1 WHERE "id"=1;`;
+  pool.query(queryText, [score])
     .then(() => {
       res.sendStatus(200);
     })

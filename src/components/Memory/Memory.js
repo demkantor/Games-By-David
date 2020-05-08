@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import '../App/App.css';
 import Swal from 'sweetalert2'
+import {connect} from 'react-redux';
 
 
 
 class Memory extends Component {
+
 
     state={
         cardsChosen: [],
@@ -59,12 +61,12 @@ class Memory extends Component {
                 img: '/images/memory/zebra.jpg'
             }
         ],
-        cardsWon: [],
-        resultDisplay: 0,
+        resultDisplay: 0
     }
 
     componentDidMount=()=>{
         console.log('memory time!');
+        this.props.dispatch({type: 'GET_GAMES_PLAYED'});
         this.createBoard();
     }
 
@@ -116,12 +118,12 @@ class Memory extends Component {
                 cards[secondOption].classList.add('memoryBlank');
               })
             this.setState({
-                cardsWon: [...this.state.cardsWon, this.state.cardsChosen]
-            });
+                resultDisplay: this.state.resultDisplay + 1
+            })
         }else {
             Swal.fire({
                 toast: true,
-                position: 'center-center',
+                position: 'center',
                 title: 'Sorry... Try again!',
                 showClass: {
                   popup: 'animated fadeInDown'
@@ -150,16 +152,15 @@ class Memory extends Component {
         this.setState({
             cardsChosen: [],
             cardsChosenId: [],
-            cardsWon: [],
             resultDisplay: 0
         });
         this.createBoard();
     }
 
     updateScore=()=>{
-        this.setState({resultDisplay: this.state.cardsWon.length});
-        if (this.state.cardsWon.length === (this.state.cardArray.length/2)){
+        if (this.state.resultDisplay === 5){
             this.setState({resultDisplay: 'Congratulations!! You found them all!!'});
+            this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', payload: {game: 'memory', score: (this.props.reduxState.highScore.gamesPlayed.memory + 1)}})
         }
     }
 
@@ -194,4 +195,8 @@ class Memory extends Component {
     }
 }
   
-export default Memory;
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+  });
+  
+export default connect(putReduxStateOnProps)(Memory);
