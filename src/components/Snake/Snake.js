@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App/App.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import {connect} from 'react-redux';
 
 
 
@@ -21,6 +22,7 @@ class Snake extends Component {
 
     componentDidMount=()=>{
         console.log("sssssssssssssss......");
+        this.props.dispatch({type: 'GET_GAMES_PLAYED'});
         document.addEventListener('keydown', this.control);
     }
 
@@ -59,6 +61,7 @@ class Snake extends Component {
           (currentSnake[0] - this.width < 0 && direction === -this.width) ||  // snake hits top wall
           squares[currentSnake[0] + direction].classList.contains('snake') // snake hits itself
         ) {
+          this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', payload: {game: 'snake', score: (this.props.reduxState.highScore.gamesPlayed.snake + 1)}})
           return( Swal.fire({
             toast: true,
             title: 'Ouch!',
@@ -211,4 +214,9 @@ class Snake extends Component {
   }
 }
   
-export default Snake;
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+});
+
+export default connect(putReduxStateOnProps)(Snake);
+

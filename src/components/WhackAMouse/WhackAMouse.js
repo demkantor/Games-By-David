@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App/App.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import {connect} from 'react-redux';
 
 
 
@@ -15,7 +16,8 @@ class WhackAMouse extends Component {
     }
 
     componentDidMount=()=>{
-        console.log("let's start wackin!")
+        console.log("let's start wackin!");
+        this.props.dispatch({type: 'GET_GAMES_PLAYED'});
     }
 
     componentWillUnmount=()=>{
@@ -24,26 +26,26 @@ class WhackAMouse extends Component {
     }
 
     countDown=()=>{
-        const timeLeft = document.querySelector('#wackTime');
+        const timeLeft = document.querySelector('#whack-time');
         let currentTime = timeLeft.textContent;
         currentTime--
         timeLeft.textContent = currentTime
         
         if(currentTime === 0){
+            this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', payload: {game: 'whack', score: (this.props.reduxState.highScore.gamesPlayed.whack + 1)}});
             Swal.fire({
                 title: 'GAME OVER! Your final score is: ' + this.state.result, 
                 icon: "success", 
                 allowOutsideClick: false,
                 confirmButtonText: 'Awesomeness!',
             }).then(() => {
-                    this.reset()
+                    this.reset();
                 });
-            
         }
     }
 
     hit=(id)=>{
-        let score = document.querySelector('#wackScore');
+        let score = document.querySelector('#whack-score');
         if(id === this.state.hitPosition){
             this.setState({
                 result: this.state.result +1
@@ -55,18 +57,18 @@ class WhackAMouse extends Component {
     randomSquare=()=>{
         const square = document.querySelectorAll(".wackSquare");
         square.forEach(className =>{
-            className.classList.remove('wackMole')
+            className.classList.remove('whack-mole');
             });
         let randomPosition = square[Math.floor(Math.random() * 9)];
-        randomPosition.classList.add('wackMole');
+        randomPosition.classList.add('whack-mole');
         this.setState({
             hitPosition: randomPosition.id
         });
     }
 
     reset=()=>{
-        let score = document.querySelector('#wackScore');
-        const timeLeft = document.querySelector('#wackTime');
+        let score = document.querySelector('#whack-score');
+        const timeLeft = document.querySelector('#whack-time');
         clearInterval(this.moveMole);
         clearInterval(this.timerId);
             this.setState({
@@ -85,7 +87,7 @@ class WhackAMouse extends Component {
     render() {
         return (
         <>
-            <div className="wackWrapper">
+            <div className="whackWrapper">
                 <div className="container">
                     <header className="header">
                         <h1 className="fw-300 t-ucase">Let's Play
@@ -94,15 +96,15 @@ class WhackAMouse extends Component {
                         </h1>
                     </header>
                     <center>
-                        <h2>Score: <span id="wackScore">0</span></h2>
-                        <h2>Time Left: <span id="wackTime">60</span></h2>
+                        <h2>Score: <span id="whack-score">0</span></h2>
+                        <h2>Time Left: <span id="whack-time">60</span></h2>
                     </center>
                     
                     <button className="btn-lg" onClick={this.startGame}>Start Game</button>
                     <br/>
                     <br/>
                     <br/>
-                    <div className="wackGrid">
+                    <div className="whackGrid">
                         <div className="wackSquare" id="1" onMouseUp={()=>this.hit("1")}></div>
                         <div className="wackSquare" id="2" onMouseUp={()=>this.hit("2")}></div>
                         <div className="wackSquare" id="3" onMouseUp={()=>this.hit("3")}></div>
@@ -120,4 +122,9 @@ class WhackAMouse extends Component {
     }
 }
   
-export default WhackAMouse;
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+  });
+  
+  export default connect(putReduxStateOnProps)(WhackAMouse);
+  

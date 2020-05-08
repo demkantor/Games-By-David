@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App/App.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import {connect} from 'react-redux';
 
 
 class TicTacToe extends Component {
@@ -13,6 +14,8 @@ class TicTacToe extends Component {
     }
   
     componentDidMount=()=> {
+      console.log('cats game!');
+      this.props.dispatch({type: 'GET_GAMES_PLAYED'});
       this.newGame();
     }
   
@@ -28,12 +31,12 @@ class TicTacToe extends Component {
       if (!this.squares[num]) {
         this.squares.splice(num, 1, this.state.player);
         if(this.state.player === 'X'){
-            this.setState({player: 'O'})
+            this.setState({player: 'O'});
         } else {
-            this.setState({player: 'X'})
+            this.setState({player: 'X'});
         }
       } else {
-          Swal.fire(`Oops, can't go there!`)
+          Swal.fire(`Oops, can't go there!`);
       }
       this.setState({winner: this.calculateWinner()});
     }
@@ -63,6 +66,7 @@ class TicTacToe extends Component {
                     this.newGame()
                 } 
             })
+            this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', payload: {game: 'tic', score: (this.props.reduxState.highScore.gamesPlayed.tic + 1)}})
           return (this.squares[a]);
         }
       }
@@ -103,4 +107,8 @@ class TicTacToe extends Component {
 }
   
 
-export default TicTacToe;
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+});
+
+export default connect(putReduxStateOnProps)(TicTacToe);

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../App/App.css';
+import {connect} from 'react-redux';
 
 
 class Tetris extends Component {
@@ -92,7 +93,7 @@ class Tetris extends Component {
               
         componentDidMount =()=> {
             console.log("tetris!!!");
-            // document.registerElement("t-div")
+            this.props.dispatch({type: 'GET_GAMES_PLAYED'});
             this.createGrid();
             document.addEventListener('keydown', this.control);
         }
@@ -178,6 +179,8 @@ class Tetris extends Component {
             if(this.current.some(index => squares[this.currentPosition + index].classList.contains('block2'))) {
                 this.setState({lines: 'end'});
                 clearInterval(this.timerId);
+                this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', 
+                    payload: {game: 'tetris', score: (this.props.reduxState.highScore.gamesPlayed.tetris + 1)}});
             }
         }
       
@@ -286,6 +289,16 @@ class Tetris extends Component {
                                 </h2>
                             </div>
                             <button className="btn-lg" onClick={this.startGame}>Start / Pause</button>
+                            <div className="t-dpad">
+                                <i></i>
+                                <i className="fas fa-arrow-alt-circle-up fa-4x" onClick={()=>this.phoneControl('up')}></i>
+                                <i></i>
+                                <i className="fas fa-arrow-alt-circle-left fa-4x" onClick={()=>this.phoneControl('left')}></i>
+                                <i></i>
+                                <i className="fas fa-arrow-alt-circle-right fa-4x" onClick={()=>this.phoneControl('right')}></i>
+                                <i></i>
+                                <i className="fas fa-arrow-alt-circle-down fa-4x" onClick={()=>this.phoneControl('down')}></i>
+                            </div>
                         </section>
                     </main>
                 </div>
@@ -295,4 +308,8 @@ class Tetris extends Component {
 }
 
   
-export default Tetris;
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+});
+
+export default connect(putReduxStateOnProps)(Tetris);

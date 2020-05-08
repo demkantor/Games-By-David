@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App/App.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import {connect} from 'react-redux';
 
 
 class ConnectFour extends Component {
@@ -55,6 +56,8 @@ class ConnectFour extends Component {
                 Swal.fire('Red Player Wins!');
                 this.setState({currentPlayer: 'Game Over'});
                 this.setState({results: 'Red Player Wins!'});
+                this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', 
+                    payload: {game: 'connect', score: (this.props.reduxState.highScore.gamesPlayed.connect + 1)}});
             } 
             //now check to see if they all have the classname player two
             else if (square1.classList.contains('connectPlayer-two') &&
@@ -64,12 +67,15 @@ class ConnectFour extends Component {
                 Swal.fire('Blue Player Wins!');
                 this.setState({currentPlayer: 'Game Over'});
                 this.setState({results: 'Blue Player Wins!'});
+                this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', 
+                    payload: {game: 'connect', score: (this.props.reduxState.highScore.gamesPlayed.connect + 1)}});
             }
         }
     }
 
     componentDidMount=()=>{
         console.log('making connections');
+        this.props.dispatch({type: 'GET_GAMES_PLAYED'});
     }
 
     reset=()=>{
@@ -153,4 +159,9 @@ class ConnectFour extends Component {
   }
 }
   
-export default ConnectFour;
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+  });
+  
+export default connect(putReduxStateOnProps)(ConnectFour);
+  

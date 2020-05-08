@@ -351,8 +351,8 @@ a {
   transition: ease-in-out 300ms;
 }
 
-/* wack a mole styles */
-.wackWrapper{
+/* whack a mole styles */
+.whackWrapper {
   height: 100vh;
   width: 100vw;
   background: var(--grad-quaternary);
@@ -360,7 +360,7 @@ a {
   overflow: hidden;
 }
 
-.wackGrid{
+.whackGrid{ 
   margin-left: 20vw;
   display: flex;
   flex-flow: row wrap;
@@ -372,7 +372,7 @@ a {
   max-height: 600px;
 }
 
-.wackSquare{
+.wackSquare {
   width: 25vmin;
   height: 25vmin;
   max-width: 150px;
@@ -383,20 +383,20 @@ a {
   cursor: crosshair;
 }
 
-.wackMole{
+.whack-mole {
   background-image: url("/images/wack/mouse.jpg");
   background-size: cover;
 }
 
 /* connect four styles */
-.connectWrapper{
+.connectWrapper {
   background: var(--grad-senary);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
 
-.connectGrid{
+.connectGrid {
   margin-left: 15vw;
   border: 1em ridge;
   display: flex;
@@ -604,6 +604,9 @@ t-div {
   font-size: 1.2rem;
 }
 
+.t-dpad{
+  display: none;
+}
 
 /* Small screens - moves navbar to bottom of page*/
 @media only screen and (max-width: 600px) {
@@ -654,12 +657,12 @@ t-div {
   }
 
   /* shrink wack-a-mole to fit on small screens */
-  .wackWrapper{
+  .whackWrapper{
     padding-left: 0vw;
     width: 100vw;
   }
 
-  .wackGrid{
+  .whackGrid{
     margin-left: 10vw;
     width: 80vmin;
     height: 65vmin;
@@ -733,7 +736,18 @@ t-div {
     height: 24px;
   }
 
-
+    /* only show tetris dpad in small screens */
+    .t-dpad {
+      display: grid;
+      grid-template-columns: 4.5em auto 4.5em;
+      grid-template-rows: repeat(3, 4.5em);
+      margin-left: 3vw;
+      height: 18vh;
+      width: 18vh;
+      justify-content: center;
+      text-align: center;
+    }
+  
 
 
 
