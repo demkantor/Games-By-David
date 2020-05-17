@@ -14,6 +14,7 @@ import DiceGame from '../DiceGame/DiceGame';
 import Chess from '../Chess/Chess';
 import Rock from '../Rock/Rock';
 import TicTacToe from '../TicTacToe/TicTacToe';
+import GameOfLife from '../GameOfLife/GameOfLife';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/connect" component={ConnectFour}/>
           <Route exact path="/tetris" component={Tetris}/>
           <Route exact path="/space" component={SpaceInvaders}/>
+          <Route exact path="/game-of-life" component={GameOfLife}/>
           <Route exact path="/pac" component={PacMan}/>
           <Route exact path="/dice" component={DiceGame}/>
           <Route exact path="/chess" component={Chess}/>

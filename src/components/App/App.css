@@ -608,6 +608,15 @@ t-div {
   display: none;
 }
 
+/* game of life styles */
+.lifeWrapper {
+  height: 100vh;
+  width: 100vw;
+  background: var(--grad-septenary);
+  background-size: contain;
+  overflow: hidden;
+}
+
 /* Small screens - moves navbar to bottom of page*/
 @media only screen and (max-width: 600px) {
   .navbar {

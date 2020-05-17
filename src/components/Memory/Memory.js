@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../App/App.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import {connect} from 'react-redux';
 
 

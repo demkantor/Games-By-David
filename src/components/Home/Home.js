@@ -80,6 +80,13 @@ class Home extends Component {
                                 <p className="fw-400 t-ucase">Games Played: {this.props.reduxState.highScore.gamesPlayed.space}</p>
                             </h1>
                         </a>
+                        <a href="#game-of-life" className="score-card">
+                            <h1 className="fw-400 t-ucase">Conway's Game of Life 
+                                <br/> 
+                                <h2>Games Played</h2>
+                                <h1 className="t-ucase fw-300">{this.props.reduxState.highScore.allHighs.life}</h1>
+                            </h1>
+                        </a>
                     </div>
                 </div>
             </div>
