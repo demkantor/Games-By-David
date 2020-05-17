@@ -612,9 +612,27 @@ t-div {
 .lifeWrapper {
   height: 100vh;
   width: 100vw;
-  background: var(--grad-septenary);
+  background: var(--grad-senary);
   background-size: contain;
   overflow: hidden;
+}
+
+.life-board {  
+  position: relative;  
+  margin: 0 auto;  
+  background-color: #000;
+  background-image: linear-gradient(#333 1px, transparent 1px), 
+              linear-gradient(90deg, #333 1px, transparent 1px);
+}
+
+.life-cell {  
+  background: #ccc;  
+  position: absolute;
+}
+
+.life-controls {
+  display: block ruby;
+  text-align: center;
 }
 
 /* Small screens - moves navbar to bottom of page*/
@@ -745,19 +763,23 @@ t-div {
     height: 24px;
   }
 
-    /* only show tetris dpad in small screens */
-    .t-dpad {
-      display: grid;
-      grid-template-columns: 4.5em auto 4.5em;
-      grid-template-rows: repeat(3, 4.5em);
-      margin-left: 3vw;
-      height: 18vh;
-      width: 18vh;
-      justify-content: center;
-      text-align: center;
-    }
+  /* only show tetris dpad in small screens */
+  .t-dpad {
+    display: grid;
+    grid-template-columns: 4.5em auto 4.5em;
+    grid-template-rows: repeat(3, 4.5em);
+    margin-left: 3vw;
+    height: 18vh;
+    width: 18vh;
+    justify-content: center;
+    text-align: center;
+  }
   
-
+  
+  /* game of life styles for small screens */
+  .life-controls {
+    display: inherit;
+  }
 
 
 

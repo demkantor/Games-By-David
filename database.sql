@@ -10,7 +10,8 @@ CREATE TABLE "games_played" (
   "snake" INT,
   "connect" INT,
   "tetris" INT,
-  "space" INT
+  "space" INT,
+  "life" INT
 );
 
 CREATE TABLE "memory" (
@@ -50,10 +51,14 @@ CREATE TABLE "space" (
   "best_time" INT
 );
 
+CREATE TABLE "life" (
+  "id" SERIAL PRIMARY KEY,
+  "longest_run" INT
+);
 
 --enter some started data
-INSERT INTO "games_played" ("memory", "tic", "whack", "snake", "connect", "tetris", "space")
-VALUES (4, 33, 9, 8, 1, 12, 32);
+INSERT INTO "games_played" ("memory", "tic", "whack", "snake", "connect", "tetris", "space", "life")
+VALUES (4, 33, 9, 8, 1, 12, 32, 2);
 
 INSERT INTO "memory" ("best_time")
 VALUES (65);
@@ -75,4 +80,7 @@ VALUES (70);
 
 INSERT INTO "space" ("best_time")
 VALUES (33);
+
+INSERT INTO "life" ("longest_run")
+VALUES (4000);
 
