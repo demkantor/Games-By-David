@@ -142,7 +142,9 @@ const SpaceInvaders= () => {
                 <span className="fw-400 t-wide f-big t-ucase">Space Invaders</span>
               </h1>
             </header>
-            <h3>Score: <span id="result"></span></h3>
+            <center>
+              <h1>Score: <span id="result"></span></h1>
+            </center>
             {/* <button className="btn-sml" onClick={this.startGame}>Start</button> */}
             <div className="spaceGrid">
             {/* 15 x15 grid so 225 divs  simple way to create = div*100 */}
