@@ -18,17 +18,17 @@ class Snake extends Component {
         appleIndex: 10,
         currentIndex: 0,
         direction: 1,
-    }
+    };
 
     componentDidMount=()=>{
         console.log("sssssssssssssss......");
         this.props.dispatch({type: 'GET_GAMES_PLAYED'});
         document.addEventListener('keydown', this.control);
-    }
+    };
 
     componentWillUnmount=()=>{
         clearInterval(this.interval);
-    }
+    };
 
     // assign keyboard arrow keys for control
     control=(e)=>{

@@ -127,8 +127,8 @@ class Rock extends Component {
                         <div className ="rps-match fadeOut">
                             <h2 className="rps-winner">Choose an option</h2>
                             <div className="hands">
-                                <img className="player-hand" src="images/rock/hand-rock-solid.svg" width="150" alt="player"/>
-                                <img className="comp-hand" src="images/rock/hand-rock-solid.svg" width="150" alt="computer"/>
+                                <img className="player-hand" src="images/rock/hand-rock-solid.svg" width="150" height="150" alt="player"/>
+                                <img className="comp-hand" src="images/rock/hand-rock-solid.svg" width="150" height="150" alt="computer"/>
                             </div>
                             <div className="rps-options">
                                 <button onClick={()=>this.chooseWisely('rock')} className="rock">rock</button>

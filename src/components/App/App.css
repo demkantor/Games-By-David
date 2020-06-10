@@ -938,6 +938,28 @@ div.fadeIn {
     display: inherit;
   }
 
+  /* game of life styles for small screens */
+  .intro button, 
+  .rps-match button {
+    
+    font-size: 1.2em;
+  }
+
+  .intro {
+    height: 30vh;
+  }
+
+  .intro h1 {
+    font-size: 2em;
+  }
+
+  .rps-match {
+    top: 65%;
+  }
+
+  .rps-tie {
+    margin-top: -15vh;
+  }
 
 
 

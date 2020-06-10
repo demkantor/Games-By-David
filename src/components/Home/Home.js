@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import '../App/App.css';
 
 
-
+// fetches data from db, displays cards for each game with high scores
 class Home extends Component {
 
     componentDidMount=()=>{
@@ -87,16 +87,24 @@ class Home extends Component {
                                 <h1 className="t-ucase fw-300">{this.props.reduxState.highScore.gamesPlayed.life}</h1>
                             </h1>
                         </a>
+                        <a href="#r-p-s" className="score-card">
+                            <h1 className="fw-400 t-ucase">Rock Paper Scissors 
+                                <br/> 
+                                <h3>Rounds Won</h3>
+                                <h1 className="t-ucase fw-300">{this.props.reduxState.highScore.allHighs.rock}</h1>
+                                <p className="fw-400 t-ucase">Games Played: {this.props.reduxState.highScore.gamesPlayed.rock}</p>
+                            </h1>
+                        </a>
                     </div>
                 </div>
             </div>
         )
     }
-}
+};
   
 
 const putReduxStateOnProps = (reduxState) => ({
     reduxState
-  });
+});
   
 export default connect(putReduxStateOnProps)(Home);

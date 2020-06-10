@@ -11,7 +11,8 @@ CREATE TABLE "games_played" (
   "connect" INT,
   "tetris" INT,
   "space" INT,
-  "life" INT
+  "life" INT,
+  "rock" INT,
 );
 
 CREATE TABLE "memory" (
@@ -56,9 +57,14 @@ CREATE TABLE "life" (
   "longest_run" INT
 );
 
+CREATE TABLE "rock" (
+  "id" SERIAL PRIMARY KEY,
+  "rounds_won" INT
+);
+
 --enter some started data
-INSERT INTO "games_played" ("memory", "tic", "whack", "snake", "connect", "tetris", "space", "life")
-VALUES (4, 33, 9, 8, 1, 12, 32, 2);
+INSERT INTO "games_played" ("memory", "tic", "whack", "snake", "connect", "tetris", "space", "life", "rock")
+VALUES (4, 33, 9, 8, 1, 12, 32, 2, 11);
 
 INSERT INTO "memory" ("best_time")
 VALUES (65);
@@ -83,4 +89,7 @@ VALUES (33);
 
 INSERT INTO "life" ("longest_run")
 VALUES (4000);
+
+INSERT INTO "rock" ("rounds_won")
+VALUES (7);
 
