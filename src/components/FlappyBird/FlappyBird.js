@@ -376,12 +376,20 @@ const FlappyBird = () => {
 
     return (
         <div className="flappyWrapper">
-            <canvas 
-                id="bird" 
-                className="flappy-board" 
-                width="320" 
-                height="480" 
-                    />
+            <div className="container">
+                <header className="header">
+                <h1 className="fw-300 t-ucase">Let's Play
+                        <br/>
+                        <span className="fw-400 t-wide f-big t-ucase">Flappy Bird</span>
+                    </h1>
+                </header>
+                <canvas 
+                    id="bird" 
+                    className="flappy-board" 
+                    width="320" 
+                    height="480" 
+                        />
+            </div>
         </div>
     );
 };
