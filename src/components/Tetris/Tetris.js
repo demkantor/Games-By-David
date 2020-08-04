@@ -89,18 +89,18 @@ class Tetris extends Component {
                 squares.forEach(cell => grid.appendChild(cell));
                 }
             }
-        }
+        };
               
         componentDidMount =()=> {
             console.log("tetris!!!");
             this.props.dispatch({type: 'GET_GAMES_PLAYED'});
             this.createGrid();
             document.addEventListener('keydown', this.control);
-        }
+        };
 
         componentWillUnmount=()=>{
             clearInterval(this.timerId);
-        }
+        };
     
         //assign functions to keycodes
         control=(e)=>{
@@ -113,7 +113,7 @@ class Tetris extends Component {
             } else if (e.keyCode === 40) {
                 this.moveDown();
             }
-        }
+        };
 
         createGrid=()=>{
             // the main grid
@@ -135,7 +135,7 @@ class Tetris extends Component {
             }
             this.setState({grid: grid})
             this.setState({squares: Array.from(grid.querySelectorAll('t-div'))})
-        }
+        };
 
         displayShape=()=> {
             let displaySquares = document.querySelectorAll('.previous-grid t-div');
@@ -146,7 +146,7 @@ class Tetris extends Component {
             this.smallTetrominoes[this.nextRandom].forEach( index => {
                 displaySquares[displayIndex + index].classList.add('block');
             });
-        }
+        };
       
         //draw the shape
         draw=()=>{
@@ -154,7 +154,7 @@ class Tetris extends Component {
             this.current.forEach(index => {
                 squares[this.currentPosition + index].classList.add('block')
             });
-        }
+        };
 
         //freeze the shape
         freeze=()=> {
@@ -172,7 +172,7 @@ class Tetris extends Component {
                 this.addScore();
                 this.gameOver();
             }
-        }
+        };
 
         gameOver=()=> {
             const squares = this.state.squares;
@@ -182,7 +182,7 @@ class Tetris extends Component {
                 this.props.dispatch({type: 'ANOTHER_GAME_PLAYED', 
                     payload: {game: 'tetris', score: (this.props.reduxState.highScore.gamesPlayed.tetris + 1)}});
             }
-        }
+        };
       
         //move down on loop
         moveDown=()=> {
@@ -190,7 +190,7 @@ class Tetris extends Component {
             this.currentPosition = this.currentPosition += this.width;
             this.draw();
             this.freeze();
-        }
+        };
       
         //move right and prevent collisions with shapes moving right
         moveleft=()=> {
@@ -202,7 +202,7 @@ class Tetris extends Component {
                 this.currentPosition += 1;
             }
             this.draw();
-        }
+        };
 
         //move left and prevent collisions with shapes moving left
         moveright=()=> {
@@ -214,7 +214,7 @@ class Tetris extends Component {
                 this.currentPosition -= 1;
             }
             this.draw();
-        }
+        };
       
         // control for dpad - only shows in smal screens
         phoneControl=(dpad)=>{
@@ -227,7 +227,7 @@ class Tetris extends Component {
             } else if (dpad === 'down') {
                 this.moveDown();
             }
-        }
+        };
 
         //Rotate the Tetromino
         rotate=()=> {
@@ -238,7 +238,7 @@ class Tetris extends Component {
             }
             this.current = this.theTetrominoes[this.random][this.currentRotation];
             this.draw();
-        }
+        };
       
         startGame=() => {
             if(this.timerId) {
@@ -250,7 +250,7 @@ class Tetris extends Component {
               this.nextRandom = Math.floor(Math.random() * this.theTetrominoes.length);
               this.displayShape();
             }
-        }
+        };
       
         //undraw the shape
         undraw=()=> {
@@ -258,7 +258,7 @@ class Tetris extends Component {
             this.current.forEach(index => {
                 squares[this.currentPosition + index].classList.remove('block')
             });
-        }
+        };
       
   
     render() {
@@ -305,7 +305,7 @@ class Tetris extends Component {
             </div>
         )
     }
-}
+};
 
   
 const putReduxStateOnProps = (reduxState) => ({

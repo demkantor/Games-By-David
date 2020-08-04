@@ -95,11 +95,19 @@ class Home extends Component {
                                 <p className="fw-400 t-ucase">Games Played: {this.props.reduxState.highScore.gamesPlayed.rock}</p>
                             </h1>
                         </a>
+                        <a href="#flappy" className="score-card">
+                            <h1 className="fw-400 t-ucase">Flappy Bird 
+                                <br/> 
+                                <h3>High Score</h3>
+                                <h1 className="t-ucase fw-300">{this.props.reduxState.highScore.allHighs.flappy}</h1>
+                                <p className="fw-400 t-ucase">Games Played: {this.props.reduxState.highScore.gamesPlayed.flappy}</p>
+                            </h1>
+                        </a>
                     </div>
                 </div>
             </div>
-        )
-    }
+        );
+    };
 };
   
 

@@ -792,6 +792,20 @@ div.fadeIn {
 }
 
 
+/* flappy bird styles */
+.flappyWrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--grad-primary);
+}
+
+.flappy-board {
+  border: 1px solid #000000;
+  display: block;
+  margin: 20vh auto;
+}
+
 /* Small screens - moves navbar to bottom of page*/
 @media only screen and (max-width: 600px) {
   .navbar {

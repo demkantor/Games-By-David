@@ -1,6 +1,6 @@
 import React from 'react';
-import {HashRouter as Router, Route} from 'react-router-dom';
-import './App.css';
+import { HashRouter as Router, Route } from 'react-router-dom';
+
 import Nav from '../Nav/Nav';
 import Memory from '../Memory/Memory';
 import WhackaAMouse from '../WhackAMouse/WhackAMouse';
@@ -15,8 +15,11 @@ import Chess from '../Chess/Chess';
 import Rock from '../Rock/Rock';
 import TicTacToe from '../TicTacToe/TicTacToe';
 import GameOfLife from '../GameOfLife/GameOfLife';
+import FlappyBird from '../FlappyBird/FlappyBird';
 
-function App() {
+import './App.css';
+
+const App = () => {
 
   return (
     <>
@@ -35,9 +38,10 @@ function App() {
           <Route exact path="/dice" component={DiceGame}/>
           <Route exact path="/chess" component={Chess}/>
           <Route exact path="/r-p-s" component={Rock}/>
+          <Route exact path="/flappy" component={FlappyBird}/>
      </Router>
     </>
   );
-}
+};
 
 export default App;
