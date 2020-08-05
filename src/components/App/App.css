@@ -806,6 +806,24 @@ div.fadeIn {
   margin: 10vh auto;
 }
 
+/* breakout bird styles */
+.breakoutWrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--grad-tertiary);
+}
+
+.breakout-board {
+  border: 1px solid #000000;
+  display: block;
+  margin: 10vh auto;
+}
+
+.brick-ball {
+  display: none;
+}
+
 /* Small screens - moves navbar to bottom of page*/
 @media only screen and (max-width: 600px) {
   .navbar {

@@ -18,6 +18,7 @@ import GameOfLife from '../GameOfLife/GameOfLife';
 import FlappyBird from '../FlappyBird/FlappyBird';
 
 import './App.css';
+import Breakout from '../Breakout/Breakout';
 
 const App = () => {
 
@@ -25,20 +26,21 @@ const App = () => {
     <>
      <Router>
         <Nav />
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/memory" component={Memory}/>
-          <Route exact path="/tic-tac-toe" component={TicTacToe}/>
-          <Route exact path="/whack" component={WhackaAMouse}/>
-          <Route exact path="/snake" component={Snake}/>
-          <Route exact path="/connect" component={ConnectFour}/>
-          <Route exact path="/tetris" component={Tetris}/>
-          <Route exact path="/space" component={SpaceInvaders}/>
-          <Route exact path="/game-of-life" component={GameOfLife}/>
-          <Route exact path="/pac" component={PacMan}/>
-          <Route exact path="/dice" component={DiceGame}/>
-          <Route exact path="/chess" component={Chess}/>
-          <Route exact path="/r-p-s" component={Rock}/>
-          <Route exact path="/flappy" component={FlappyBird}/>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/memory" component={Memory} />
+          <Route exact path="/tic-tac-toe" component={TicTacToe} />
+          <Route exact path="/whack" component={WhackaAMouse} />
+          <Route exact path="/snake" component={Snake} />
+          <Route exact path="/connect" component={ConnectFour} />
+          <Route exact path="/tetris" component={Tetris} />
+          <Route exact path="/space" component={SpaceInvaders} />
+          <Route exact path="/game-of-life" component={GameOfLife} />
+          <Route exact path="/pac" component={PacMan} />
+          <Route exact path="/dice" component={DiceGame} />
+          <Route exact path="/chess" component={Chess} />
+          <Route exact path="/r-p-s" component={Rock} />
+          <Route exact path="/breakout" component={Breakout} />
+          <Route exact path="/flappy" component={FlappyBird} />
      </Router>
     </>
   );

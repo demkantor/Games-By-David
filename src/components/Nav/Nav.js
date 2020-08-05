@@ -244,22 +244,42 @@ class Nav extends Component {
       </li>
 
       <li className="nav-item">
-        <a href="#pac" className="nav-link">
+        <a href="#r-p-s" className="nav-link">
         <svg aria-hidden="true" 
         focusable="false" 
         data-prefix="fas" 
-        data-icon="ghost" 
-        className="svg-inline--fa fa-ghost fa-w-12" 
+        data-icon="hand-scissors" 
+        className="svg-inline--fa fa-hand-scissors fa-w-16" 
         role="img" 
         xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 384 512">
+        viewBox="0 0 512 512">
           <path fill="currentColor" 
-          d="M186.1.09C81.01 3.24 0 94.92 0 200.05v263.92c0 14.26 17.23 21.39 27.31 11.31l24.92-18.53c6.66-4.95 16-3.99 21.51 2.21l42.95 48.35c6.25 6.25 16.38 6.25 22.63 0l40.72-45.85c6.37-7.17 17.56-7.17 23.92 0l40.72 45.85c6.25 6.25 16.38 6.25 22.63 0l42.95-48.35c5.51-6.2 14.85-7.17 21.51-2.21l24.92 18.53c10.08 10.08 27.31 2.94 27.31-11.31V192C384 84 294.83-3.17 186.1.09zM128 224c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm128 0c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"
+          d="M216 440c0-22.092 17.909-40 40-40v-8h-32c-22.091 0-40-17.908-40-40s17.909-40 40-40h32v-8H48c-26.51 0-48-21.49-48-48s21.49-48 48-48h208v-13.572l-177.551-69.74c-24.674-9.694-36.818-37.555-27.125-62.228 9.693-24.674 37.554-36.817 62.228-27.124l190.342 74.765 24.872-31.09c12.306-15.381 33.978-19.515 51.081-9.741l112 64A40.002 40.002 0 0 1 512 168v240c0 18.562-12.77 34.686-30.838 38.937l-136 32A39.982 39.982 0 0 1 336 480h-80c-22.091 0-40-17.908-40-40z"
           className="fa-primary"
         ></path></svg>
-          <span className="link-text">Pac-Man</span>
+          <span className="link-text">Rock Paper Scissors</span>
         </a>
       </li>
+
+      <li className="nav-item">
+        <a href="#breakout" className="nav-link">
+        <svg 
+          aria-hidden="true" 
+          focusable="false" 
+          data-prefix="fas" 
+          data-icon="pallet" 
+          className="svg-inline--fa fa-pallet fa-w-20" 
+          role="img" 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 640 512"
+        ><path fill="currentColor" 
+          d="M144 256h352c8.8 0 16-7.2 16-16V16c0-8.8-7.2-16-16-16H384v128l-64-32-64 32V0H144c-8.8 0-16 7.2-16 16v224c0 8.8 7.2 16 16 16zm480 128c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h48v64H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h608c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-48v-64h48zm-336 64H128v-64h160v64zm224 0H352v-64h160v64z"
+          className="fa-primary"
+          ></path>
+        </svg>
+          <span className="link-text">Breakout</span>
+        </a>
+      </li>  
 
       <li className="nav-item">
         <a href="#flappy" className="nav-link">
@@ -278,6 +298,24 @@ class Nav extends Component {
             ></path>
         </svg>
           <span className="link-text">Flappy Bird</span>
+        </a>
+      </li>
+
+      <li className="nav-item">
+        <a href="#pac" className="nav-link">
+        <svg aria-hidden="true" 
+        focusable="false" 
+        data-prefix="fas" 
+        data-icon="ghost" 
+        className="svg-inline--fa fa-ghost fa-w-12" 
+        role="img" 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 384 512">
+          <path fill="currentColor" 
+          d="M186.1.09C81.01 3.24 0 94.92 0 200.05v263.92c0 14.26 17.23 21.39 27.31 11.31l24.92-18.53c6.66-4.95 16-3.99 21.51 2.21l42.95 48.35c6.25 6.25 16.38 6.25 22.63 0l40.72-45.85c6.37-7.17 17.56-7.17 23.92 0l40.72 45.85c6.25 6.25 16.38 6.25 22.63 0l42.95-48.35c5.51-6.2 14.85-7.17 21.51-2.21l24.92 18.53c10.08 10.08 27.31 2.94 27.31-11.31V192C384 84 294.83-3.17 186.1.09zM128 224c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm128 0c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"
+          className="fa-primary"
+        ></path></svg>
+          <span className="link-text">Pac-Man</span>
         </a>
       </li>
 
@@ -316,24 +354,6 @@ class Nav extends Component {
           <span className="link-text">Chess</span>
         </a>
       </li> 
-
-      <li className="nav-item">
-        <a href="#r-p-s" className="nav-link">
-        <svg aria-hidden="true" 
-        focusable="false" 
-        data-prefix="fas" 
-        data-icon="hand-scissors" 
-        className="svg-inline--fa fa-hand-scissors fa-w-16" 
-        role="img" 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 512 512">
-          <path fill="currentColor" 
-          d="M216 440c0-22.092 17.909-40 40-40v-8h-32c-22.091 0-40-17.908-40-40s17.909-40 40-40h32v-8H48c-26.51 0-48-21.49-48-48s21.49-48 48-48h208v-13.572l-177.551-69.74c-24.674-9.694-36.818-37.555-27.125-62.228 9.693-24.674 37.554-36.817 62.228-27.124l190.342 74.765 24.872-31.09c12.306-15.381 33.978-19.515 51.081-9.741l112 64A40.002 40.002 0 0 1 512 168v240c0 18.562-12.77 34.686-30.838 38.937l-136 32A39.982 39.982 0 0 1 336 480h-80c-22.091 0-40-17.908-40-40z"
-          className="fa-primary"
-        ></path></svg>
-          <span className="link-text">Rock Paper Scissors</span>
-        </a>
-      </li>
 
       <li className="nav-item final">
         <a href="https://github.com/demkantor/Games-By-David" target="__blank">
