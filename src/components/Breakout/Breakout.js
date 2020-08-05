@@ -15,8 +15,6 @@ const Breakout = () => {
         let game= new Game(GAME_WIDTH, GAME_HEIGHT);
         game.start();
 
-        ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-
         let lastTime = 0;
 
         // run the game //
@@ -24,7 +22,7 @@ const Breakout = () => {
             let deltaTime = timestamp - lastTime;
             lastTime = timestamp;
 
-            ctx.clearRect(0, 0, 800, 600);
+            ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
             
             game.update(deltaTime);
             game.draw(ctx);
@@ -32,9 +30,7 @@ const Breakout = () => {
             requestAnimationFrame(gameLoop);
         };
 
-
         requestAnimationFrame(gameLoop);
-
     });
 
     return (
@@ -47,7 +43,8 @@ const Breakout = () => {
                     </h1>
                 </header>
 
-                <img id="img_ball" className="brick-ball" src="images/breakout/ball.png" alt="ball" />
+                <img id="img_ball" className="breakout_img" src="images/breakout/ball.png" alt="ball" />
+                <img id="img_brick" className="breakout_img" src="images/breakout/brick.png" alt="brick" />
                 <canvas id="breakout-board" className="breakout-board" width="800" height="600"></canvas>
             
             </div>
