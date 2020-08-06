@@ -1,5 +1,5 @@
 import Ball from './Ball';
-import { buildLevel, level1 } from './Levels';
+import { buildLevel, level1, level2, level3, level4 } from './Levels';
 import InputHandler from './Input';
 import Paddle from './Paddle';
 
@@ -8,7 +8,8 @@ const GAMESTATE = {
     PAUSED: 0,
     RUNNING: 1,
     MENU: 2,
-    GAMEOVER: 4
+    GAMEOVER: 3,
+    NEWLEVEL: 4
 };
 
 //main game class
@@ -23,18 +24,21 @@ export default class Game {
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
         this.gameObjects = [];
+        this.bricks = [];
         this.lives = 3;
+        this.levels = [level1, level2, level3, level4];
+        this.currentLevel = 0;
+
         new InputHandler(this.paddle, this);
     };
 
     start() {
         // only can trigger game start in game menu state
-        if (this.gamestate !== GAMESTATE.MENU) return;
+        if (this.gamestate !== GAMESTATE.MENU && this.gamestate !== GAMESTATE.NEWLEVEL) return;
 
-        let bricks = buildLevel(this, level1);
-        this.gameObjects = [
-            this.ball, this.paddle, ...bricks
-        ];
+        this.bricks = buildLevel(this, this.levels[this.currentLevel]);
+        this.ball.reset();
+        this.gameObjects = [ this.ball, this.paddle ];
         this.gamestate = GAMESTATE.RUNNING;
     };
 
@@ -45,16 +49,24 @@ export default class Game {
             this.gamestate === GAMESTATE.PAUSED || 
             this.gamestate === GAMESTATE.MENU || 
             this.gamestate === GAMESTATE.GAMEOVER
-            ) return;
+            ) 
+        return;
 
-        this.gameObjects.forEach((object) => object.update(deltaTime));
+        // go to next level
+        if (this.bricks.length === 0) {
+            this.currentLevel ++;
+            this.gamestate = GAMESTATE.NEWLEVEL;
+            this.start();
+        };
+
+        [...this.gameObjects, ...this.bricks].forEach((object) => object.update(deltaTime));
 
         // remove bricks after hit
-        this.gameObjects = this.gameObjects.filter(object => !object.markedForDeletion);
+        this.bricks = this.bricks.filter(object => !object.markedForDeletion);
     };
 
     draw(ctx) {
-        this.gameObjects.forEach((object) => object.draw(ctx));
+        [...this.gameObjects, ...this.bricks].forEach((brick) => brick.draw(ctx));
 
         // on game pause
         if (this.gamestate === GAMESTATE.PAUSED) {
