@@ -13,7 +13,6 @@ const Breakout = () => {
         const GAME_HEIGHT = 600;
 
         let game= new Game(GAME_WIDTH, GAME_HEIGHT);
-        game.start();
 
         let lastTime = 0;
 

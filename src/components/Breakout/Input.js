@@ -23,18 +23,21 @@ export default class InputHandler {
         document.addEventListener('keyup', event => {
             // console.log(event.keyCode);
             switch(event.keyCode) {
-                case 37:
+                case 37:                // left arrow key
                     if(paddle.speed < 0) {
                         paddle.stop();
                     }
                     break;
-                case 39:
+                case 39:                // right arrow key
                     if(paddle.speed > 0) {
                         paddle.stop();
                     }
                     break;
-                case 27:
+                case 27:                // esc key
                     game.togglePause();
+                    break;
+                case 32:                // spacebar
+                    game.start();
                     break;
                 default: 
                     break;
