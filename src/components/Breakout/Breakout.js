@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect }from 'react';
 import Game from './Game';
 
 
 const Breakout = () => {
 
-    document.addEventListener('DOMContentLoaded', () => {
-
+    useEffect(() => {
         let canvas = document.getElementById("breakout-board");
         let ctx = canvas.getContext("2d");
 
@@ -30,18 +29,19 @@ const Breakout = () => {
         };
 
         requestAnimationFrame(gameLoop);
-    });
+        
+    }, [])
 
     return (
         <div className="breakoutWrapper">
             <div className="container">
                 <header className="header">
-                <h1 className="fw-300 t-ucase">Let's Play
+                    <h1 className="fw-300 t-ucase">Let's Play
                         <br/>
                         <span className="fw-400 t-wide f-big t-ucase">Breakout</span>
                     </h1>
                 </header>
-
+                <p className="header">press esc key to pause game</p>
                 <img id="img_ball" className="breakout_img" src="images/breakout/ball.png" alt="ball" />
                 <img id="img_brick" className="breakout_img" src="images/breakout/brick.png" alt="brick" />
                 <canvas id="breakout-board" className="breakout-board" width="800" height="600"></canvas>
